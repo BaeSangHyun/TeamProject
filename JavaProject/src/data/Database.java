@@ -1,8 +1,10 @@
 package data;
 
-import vo.UserVO;
-
 import java.util.ArrayList;
+import java.util.HashMap;
+
+import vo.BoardVO;
+import vo.UserVO;
 
 public class Database {
     private static Database instance;
@@ -27,4 +29,6 @@ public class Database {
         user.setRank("admin");
         tb_user.add(user);
     }
+    
+    
 }

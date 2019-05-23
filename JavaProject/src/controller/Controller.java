@@ -1,5 +1,7 @@
 package controller;
 
+import service.BoardService;
+import service.BoardServiceImpl;
 import service.UserService;
 import service.UserServiceImpl;
 
@@ -8,8 +10,12 @@ import java.util.Scanner;
 import dao.Session;
 
 public class Controller {
-
+    //서비스
     private static UserService userService = UserServiceImpl.getInstance();
+
+    //컨트롤러
+    public BoardController boardController = new BoardController();
+    private CategoryController categoryController = new CategoryController();
 
     public static void main(String[] args) {
         /*
@@ -34,15 +40,26 @@ public class Controller {
         int menu;
         if(Session.loginUser == null){
         	do{
-                System.out.println("-------------------- 메뉴 --------------------");
-                System.out.println("1. 회원가입");
-                System.out.println("2. 로그인");
-                System.out.println("3. 시험목록");
-                System.out.println("0. 프로그램 종료");
-                System.out.println("----------------------------------------------");
-                System.out.print("메뉴에 해당하는 번호 입력 >");
+        		System.out.println();
+        		System.out.println("	┌──────────┐");
+        		System.out.println(" 	      ♡ Q_net	");
+       			System.out.println("	└──────────┘");
+       			System.out.println("	  /)_ /) 	||");
+        		System.out.println("  	 ( ⊼⌔⊼ ) 	||");
+        		System.out.println("  	 /      づ	||");
+        		System.out.println("메뉴에 해당하는 번호를 입력하시면 됩니다♥");
+        		System.out.println();
+    			System.out.println("---------------------------------");
+    			System.out.println("1. 회원가입");
+    			System.out.println("2. 로그인");
+    			System.out.println("3. 기술 자격시험 안내 & 접수");
+    			System.out.println("4. 합격자 & 답안 발표");
+    			System.out.println("5. 고객지원");
+    			System.out.println("6. 자격증 발급 및 확인");
+    			System.out.println("0. 종료하기");
+    			System.out.println("---------------------------------");
+    			menu = Integer.parseInt(s.nextLine());
 
-                menu = Integer.parseInt(s.nextLine());
 
                 switch (menu){
                     case 1: //회원가입
@@ -52,8 +69,18 @@ public class Controller {
                         userService.login();
                         begin();
                         break;
-                    case 3: //시험목록
+                    case 3: //기술 자격시험 안내 & 접수
+                    	categoryController.categoryList();
                         break;
+                    case 4: //합격자 & 답안 발표
+                    	//announce();
+                    	break;
+                    case 5: //고객지원
+                    	//support();
+                    	break;
+                    case 6: //자격증 발급 및 확인
+                    	//getCertificate();
+                    	break;
                     case 0: //프로그램 종료
                         System.out.println("프로그램 종료");
                         System.exit(0); //프로그램 종료 메서드
@@ -62,47 +89,60 @@ public class Controller {
             }while(menu != 0);
         } else {
         	if(Session.userRank.equals("user")){
-        		System.out.println("-------------------- 메뉴 --------------------");
-                System.out.println("1. 시험목록");
-                System.out.println("2. 마이페이지");
-                System.out.println("0. 프로그램 종료");
-                System.out.println("----------------------------------------------");
+        		System.out.println("--------------Q_net--------------");
+                System.out.println("1. 마이페이지");
+                System.out.println("2. 로그아웃");
+                System.out.println("3. 기술 자격시험 안내 & 접수");
+                System.out.println("4. 합격자 & 답안 발표");
+    			System.out.println("5. 고객지원");
+    			System.out.println("6. 자격증 발급 및 확인");
+    			System.out.println("0. 종료하기");
+    			System.out.println("---------------------------------");
                 System.out.print("메뉴에 해당하는 번호 입력 >");
 
                 menu = Integer.parseInt(s.nextLine());
 
                 switch (menu){
-                    case 1: //회원가입
-                        userService.join();
+                    case 1: //마이페이지
                         break;
                     case 2: //로그인
-                        userService.login();
                         break;
-                    case 3: //시험목록
+                    case 3: //기술 자격시험 안내 & 접수
                         break;
+                    case 4: //합격자 & 답안 발표
+                        break;
+                    case 5: //고객지원
+                        break;
+                    case 6: //자격증 발급 및 확인
+                    	break;
                     case 0: //프로그램 종료
                         System.out.println("프로그램 종료");
                         System.exit(0); //프로그램 종료 메서드
                         break;
                 }
         	} else if(Session.userRank.equals("admin")){
-        		System.out.println("-------------------- 메뉴 --------------------");
-                System.out.println("1. 시험목록");
-                System.out.println("2. 관리자페이지");
-                System.out.println("0. 프로그램 종료");
-                System.out.println("----------------------------------------------");
+        		System.out.println("--------관리자 페이지 입니다----------");
+                System.out.println("1. 회원목록");
+                System.out.println("2. 로그아웃");
+                System.out.println("3. 합격자 & 답안 발표");
+                System.out.println("4. 고객지원");
+    			System.out.println("5. 자격증 발급 및 확인");
+    			System.out.println("0. 종료하기");
+    			System.out.println("---------------------------------");
                 System.out.print("메뉴에 해당하는 번호 입력 >");
 
                 menu = Integer.parseInt(s.nextLine());
 
                 switch (menu){
-                    case 1: //회원가입
-                        userService.join();
+                    case 1: //회원목록
                         break;
-                    case 2: //로그인
-                        userService.login();
+                    case 2: //로그아웃
                         break;
-                    case 3: //시험목록
+                    case 3: //합격자 & 답안 발표
+                        break;
+                    case 4: //고객지원
+                        break;
+                    case 5: //자격증 발급 및 확인
                         break;
                     case 0: //프로그램 종료
                         System.out.println("프로그램 종료");
@@ -111,9 +151,5 @@ public class Controller {
                 }
         	}
         }
-        
     }
-
-    
-
 }
