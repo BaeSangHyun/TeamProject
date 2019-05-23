@@ -62,7 +62,7 @@ public class Controller {
             }while(menu != 0);
         } else {
         	if(Session.userRank.equals("user")){
-        		System.out.println("-------------------- 메뉴 --------------------");
+        		System.out.println("-------------------- 시작 --------------------");
                 System.out.println("1. 시험목록");
                 System.out.println("2. 마이페이지");
                 System.out.println("0. 프로그램 종료");
