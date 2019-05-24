@@ -18,12 +18,13 @@ public class BoardController {
 	Session session = new Session();
 	
 	int menu;
-	public void info(){
+	public void support(){
 		Scanner s = new Scanner(System.in);
+		
 		System.out.println("-----------고객 지원------------");
 		System.out.println("1. 공지사항");
 		System.out.println("2. FAQ");
-		System.out.println("3. 고객 참여 게시판");
+		System.out.println("3. 자유게시판");
 		System.out.println("0. 뒤로가기");
 		System.out.println("------------------------------");
 		System.out.print("숫자 입력>");
@@ -31,10 +32,12 @@ public class BoardController {
 		
 		switch(menu){
 		case 1:
+			boardStatusController.viewStatus("Notice");
 			break;
 		case 2:
+			boardStatusController.viewStatus("FAQ");
 			break;
-		case 3:
+		case 3: //고객 참여 게시판
 			if(session.loginUser == null){
 				System.out.println("로그인 해주세요.");
 				userService.login();

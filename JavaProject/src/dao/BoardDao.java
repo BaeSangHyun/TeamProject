@@ -7,9 +7,9 @@ import vo.BoardVO;
 
 public interface BoardDao {
 	
-	void insertbd(String type, BoardVO boardVO);
+	void insertbd(String type, BoardVO boardVO); //DB삽입
 
-	ArrayList<BoardVO> mainViewBoard(String type);
+	ArrayList<BoardVO> selectBoard(String type); //DB가져오기
 
 	
 

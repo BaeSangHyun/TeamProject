@@ -13,7 +13,7 @@ public class UserServiceImpl implements UserService{
 
     private static UserServiceImpl instance;
 
-    private  UserServiceImpl(){}
+    private UserServiceImpl(){}
 
     public static UserServiceImpl getInstance(){
         if(instance == null){
@@ -34,12 +34,15 @@ public class UserServiceImpl implements UserService{
         String pwd = s.nextLine();
         System.out.print("이름 : ");
         String name = s.nextLine();
+        System.out.print("전화번호 : ");
+        String tel = s.nextLine();
 
         UserVO user = new UserVO();
         user.setId(id);
         user.setPwd(pwd);
         user.setName(name);
         user.setRank("user");
+        user.setTel(tel);
 
         UserVO userCheck = userDao.selectUser("ID", user.getId());
 

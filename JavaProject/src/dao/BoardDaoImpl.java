@@ -22,33 +22,24 @@ public class BoardDaoImpl implements BoardDao {
     }
     
     BoardDB db = BoardDB.getInstance();
-    /*
-     for(int i = 0; i < 
-     */
+
 	@Override
 	public void insertbd(String type, BoardVO boardVO) {
-//		db.bd.put(boardVO);
 		db.boardDB.add(boardVO);
 	}
 
 	@Override
-	public ArrayList<BoardVO> mainViewBoard(String type) {
+	public ArrayList<BoardVO> selectBoard(String type) {
 		
 		ArrayList<BoardVO> rtnBoard = new ArrayList<BoardVO>();
+		
 		for(int i=0; i<db.boardDB.size(); i++){
 			BoardVO board = db.boardDB.get(i);
-			if(type.equals("Customer")){
+			if(db.boardDB.get(i).getBoardType().equals(type)){
 				rtnBoard.add(board);
 			}
 		}
-//		Iterator<String> itr = db.bd.keySet().iterator();
-//		while(itr.hasNext()){
-//			String key = itr.next();
-//			if(key.equals(type)){
-//				rtnBoard.add(db.bd.get(key)); 
-//			}
-//		}
 		return rtnBoard;
-
 	}
+	
 }

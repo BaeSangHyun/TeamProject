@@ -1,7 +1,5 @@
 package controller;
 
-import service.BoardService;
-import service.BoardServiceImpl;
 import service.UserService;
 import service.UserServiceImpl;
 
@@ -10,12 +8,12 @@ import java.util.Scanner;
 import dao.Session;
 
 public class Controller {
-    //서비스
-    private static UserService userService = UserServiceImpl.getInstance();
-
+	//서비스
+    private static UserService userService  = UserServiceImpl.getInstance();
     //컨트롤러
     public BoardController boardController = new BoardController();
     private CategoryController categoryController = new CategoryController();
+    public MypageController mypageController = new MypageController();
 
     public static void main(String[] args) {
         /*
@@ -34,7 +32,7 @@ public class Controller {
         
     }
 
-    private void begin(){
+	private void begin(){
         Scanner s = new Scanner(System.in);
         
         int menu;
@@ -42,11 +40,11 @@ public class Controller {
         	do{
         		System.out.println();
         		System.out.println("	┌──────────┐");
-        		System.out.println(" 	      ♡ Q_net	");
+        		System.out.println(" 	  ♡ Q_net	");
        			System.out.println("	└──────────┘");
-       			System.out.println("	  /)_ /) 	||");
-        		System.out.println("  	 ( ⊼⌔⊼ ) 	||");
-        		System.out.println("  	 /      づ	||");
+       			System.out.println("	  /)_ /) 	");
+        		System.out.println("  	 ( ⊼⌔⊼ ) 	");
+        		System.out.println("  	 /      づ	");
         		System.out.println("메뉴에 해당하는 번호를 입력하시면 됩니다♥");
         		System.out.println();
     			System.out.println("---------------------------------");
@@ -67,19 +65,30 @@ public class Controller {
                         break;
                     case 2: //로그인
                         userService.login();
-                        begin();
+                        if(Session.loginUser != null){
+                            begin();
+                            break;
+                        }
                         break;
                     case 3: //기술 자격시험 안내 & 접수
-                    	categoryController.categoryList();
+                        if(Session.loginUser == null) {
+                            userService.login();
+                            if (Session.loginUser != null) {
+                                begin();
+                            }
+                        } else if(Session.loginUser != null){
+                            begin();
+                        }
+                        begin();
                         break;
                     case 4: //합격자 & 답안 발표
                     	//announce();
                     	break;
                     case 5: //고객지원
-                    	//support();
+                    	boardController.support();
                     	break;
                     case 6: //자격증 발급 및 확인
-                    	//getCertificate();
+                    	mypageController.info();
                     	break;
                     case 0: //프로그램 종료
                         System.out.println("프로그램 종료");
@@ -106,12 +115,15 @@ public class Controller {
                     case 1: //마이페이지
                         break;
                     case 2: //로그인
+                        mypageController.info();
                         break;
                     case 3: //기술 자격시험 안내 & 접수
+                        categoryController.mainCategoryList();
                         break;
                     case 4: //합격자 & 답안 발표
                         break;
                     case 5: //고객지원
+                    	boardController.support();
                         break;
                     case 6: //자격증 발급 및 확인
                     	break;
@@ -139,8 +151,10 @@ public class Controller {
                     case 2: //로그아웃
                         break;
                     case 3: //합격자 & 답안 발표
+                        categoryController.mainCategoryList();
                         break;
                     case 4: //고객지원
+                    	boardController.support();
                         break;
                     case 5: //자격증 발급 및 확인
                         break;

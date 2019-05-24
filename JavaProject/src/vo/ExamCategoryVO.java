@@ -4,6 +4,7 @@ package vo;
 public class ExamCategoryVO {
 	private String mainNum;	//대분류 번호
 	private String categoryNum; //중분류 번호
+	private String title;	//시험명
 	private String price;	//가격
 	private String qualify;	//검정방법
 	private String pass;	//합격기준
@@ -20,6 +21,12 @@ public class ExamCategoryVO {
 	}
 	public void setCategoryNum(String categoryNum) {
 		this.categoryNum = categoryNum;
+	}
+	public String getTitle() {
+		return title;
+	}
+	public void setTitle(String title) {
+		this.title = title;
 	}
 	public String getPrice() {
 		return price;

@@ -6,8 +6,8 @@ public interface CategoryService {
     void getMainCategory();
 
     //중분류 리스트 받기(시험 종목)
-    void getExamCategory();
+    void getExamCategory(int menu);
 
     //시험 회차 리스트
-    void getExamNo();
+    void getExamNo(int menu);
 }

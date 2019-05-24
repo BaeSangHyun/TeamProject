@@ -6,7 +6,21 @@ public class UserVO {
     private String pwd;	//패스워드
     private String name;	//이름
     private String rank;	//등급
+    private String tel;		//전화번호
+//    private String addr;	//주소
     
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+//	public String getAddr() {
+//		return addr;
+//	}
+//	public void setAddr(String addr) {
+//		this.addr = addr;
+//	}
 	public String getId() {
 		return id;
 	}
