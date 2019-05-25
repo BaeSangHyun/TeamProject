@@ -1,20 +1,20 @@
 package controller;
 
-import service.UserService;
-import service.UserServiceImpl;
-
 import java.util.Scanner;
 
+import service.UserService;
+import service.UserServiceImpl;
 import dao.Session;
 
 public class Controller {
 	//서비스
     private static UserService userService  = UserServiceImpl.getInstance();
     //컨트롤러
-    public BoardController boardController = new BoardController();
+    private BoardController boardController = new BoardController();
+    private CertificateController certificateController = new CertificateController();
     private CategoryController categoryController = new CategoryController();
-    public MypageController mypageController = new MypageController();
-
+    private MypageController mypageController = new MypageController();
+    private AnnounceController announceController = new AnnounceController();
     public static void main(String[] args) {
         /*
         조 소개 > 주제 소개 > 주제 선정 배경 > 프로그램 구조 > 시연
@@ -32,7 +32,7 @@ public class Controller {
         
     }
 
-	private void begin(){
+	void begin(){
         Scanner s = new Scanner(System.in);
         
         int menu;
@@ -82,13 +82,13 @@ public class Controller {
                         begin();
                         break;
                     case 4: //합격자 & 답안 발표
-                    	//announce();
+                    	announceController.announce();
                     	break;
                     case 5: //고객지원
                     	boardController.support();
                     	break;
                     case 6: //자격증 발급 및 확인
-                    	mypageController.info();
+                    	certificateController.getCertificate();
                     	break;
                     case 0: //프로그램 종료
                         System.out.println("프로그램 종료");
@@ -113,6 +113,7 @@ public class Controller {
 
                 switch (menu){
                     case 1: //마이페이지
+                    	mypageController.info();
                         break;
                     case 2: //로그인
                         mypageController.info();
@@ -121,11 +122,13 @@ public class Controller {
                         categoryController.mainCategoryList();
                         break;
                     case 4: //합격자 & 답안 발표
+                    	announceController.announce();
                         break;
                     case 5: //고객지원
                     	boardController.support();
                         break;
                     case 6: //자격증 발급 및 확인
+                    	certificateController.getCertificate();
                     	break;
                     case 0: //프로그램 종료
                         System.out.println("프로그램 종료");
@@ -147,6 +150,7 @@ public class Controller {
 
                 switch (menu){
                     case 1: //회원목록
+//                    	adminController.getUserList();
                         break;
                     case 2: //로그아웃
                         break;
@@ -157,6 +161,7 @@ public class Controller {
                     	boardController.support();
                         break;
                     case 5: //자격증 발급 및 확인
+                    	certificateController.getCertificate();
                         break;
                     case 0: //프로그램 종료
                         System.out.println("프로그램 종료");

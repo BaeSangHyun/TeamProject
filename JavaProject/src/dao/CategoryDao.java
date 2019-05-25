@@ -1,7 +1,7 @@
 package dao;
 
 import vo.ExamCategoryVO;
-import vo.ExamNo;
+import vo.ExamNoVO;
 import vo.MainCategoryVO;
 
 import java.util.ArrayList;
@@ -13,6 +13,6 @@ public interface CategoryDao {
     //시험제목 조회
     ArrayList<ExamCategoryVO> getExamCategoryList(int menu);
     //회차 조회
-    ArrayList<ExamNo> getExamNo(int menu);
+    ArrayList<ExamNoVO> getExamNo(int menu);
 
 }

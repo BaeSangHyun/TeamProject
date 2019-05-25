@@ -27,12 +27,16 @@ public class UserServiceImpl implements UserService{
     @Override
     public void join() {
         Scanner s = new Scanner(System.in);
+        
+        System.out.println("┌────────────────────┐");
+        System.out.println("   Q_net ★회원가입★	");
+        System.out.println("└────────────────────┘");       
 
-        System.out.print("아이디 : ");
+        System.out.print("  아이디 : ");
         String id = s.nextLine();
-        System.out.print("비밀번호 : ");
+        System.out.print("  비밀번호 : ");
         String pwd = s.nextLine();
-        System.out.print("이름 : ");
+        System.out.print("  이름 : ");
         String name = s.nextLine();
         System.out.print("전화번호 : ");
         String tel = s.nextLine();
@@ -57,9 +61,14 @@ public class UserServiceImpl implements UserService{
     @Override
     public void login() {
         Scanner s = new Scanner(System.in);
-        System.out.print("아이디 : ");
+        
+        System.out.println("┌────────────────────┐");
+        System.out.println("    Q_net ★로그인★	  ");
+        System.out.println("└────────────────────┘");       
+        
+        System.out.print("  아이디 : ");
         String id = s.nextLine();
-        System.out.print("비밀번호 : ");
+        System.out.print("  비밀번호 : ");
         String pwd = s.nextLine();
 
         HashMap<String,String> param = new HashMap<String, String>();
@@ -73,7 +82,7 @@ public class UserServiceImpl implements UserService{
             Session.loginUser = user;
             Session.userRank = user.getRank();
             System.out.println("로그인 성공!!");
-            System.out.println(user.getName() + "님 환영합니다.");
+            System.out.println(user.getName() + "님 환영합니다♡");
         }
     }
 
@@ -81,8 +90,10 @@ public class UserServiceImpl implements UserService{
     public void userList() {
         ArrayList<UserVO> userList = userDao.selectUserList();
 
-        System.out.println("---------------------------------------");
+        System.out.println("-------------Q_net 회원 목록--------------");
+        System.out.println();
         System.out.println("번호\t아이디\t이름");
+        System.out.println();
         System.out.println("---------------------------------------");
         for(int i = 0; i < userList.size(); i++){
             UserVO user = userList.get(i);

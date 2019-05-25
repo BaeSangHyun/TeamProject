@@ -2,7 +2,7 @@ package data;
 
 import java.util.ArrayList;
 
-import vo.ExamNo;
+import vo.ExamNoVO;
 
 public class ExamNoDB {
 		private static ExamNoDB instance;
@@ -17,10 +17,10 @@ public class ExamNoDB {
 
 	    }
 	    
-	    public ArrayList<ExamNo> tb_examno = new ArrayList<ExamNo>();
+	    public ArrayList<ExamNoVO> tb_examno = new ArrayList<ExamNoVO>();
 	    
 	    {
-	    	ExamNo examno = new ExamNo();
+	    	ExamNoVO examno = new ExamNoVO();
 	    	examno.setCategoryNum("0101");
 	    	examno.setTurn("2019년 정기 기사 1회");
 	    	examno.setTitle("정보처리기사");
@@ -33,7 +33,7 @@ public class ExamNoDB {
 	    	
 	    	tb_examno.add(examno);
 	    	
-	    	examno = new ExamNo();
+	    	examno = new ExamNoVO();
 	    	examno.setCategoryNum("0101");
 	    	examno.setTurn("2019년 정기 기사 2회");
 	    	examno.setTitle("정보처리기사");
@@ -46,7 +46,7 @@ public class ExamNoDB {
 	    	
 	    	tb_examno.add(examno);
 	    	
-	    	examno = new ExamNo();
+	    	examno = new ExamNoVO();
 	    	examno.setCategoryNum("0101");
 	    	examno.setTurn("2019년 정기 기사 3회");
 	    	examno.setTitle("정보처리기사");
@@ -59,7 +59,7 @@ public class ExamNoDB {
 	    	
 	    	tb_examno.add(examno);
 	    	
-	    	examno = new ExamNo();
+	    	examno = new ExamNoVO();
 	    	examno.setCategoryNum("0102");
 	    	examno.setTurn("2019년 정기 기사 1회");
 	    	examno.setTitle("정보관리기술사");
@@ -72,7 +72,7 @@ public class ExamNoDB {
 	    	
 	    	tb_examno.add(examno);
 	    	
-	    	examno = new ExamNo();
+	    	examno = new ExamNoVO();
 	    	examno.setCategoryNum("0102");
 	    	examno.setTurn("2019년 정기 기사 2회");
 	    	examno.setTitle("정보관리기술사");
@@ -85,7 +85,7 @@ public class ExamNoDB {
 	    	
 	    	tb_examno.add(examno);
 	    	
-	    	examno = new ExamNo();
+	    	examno = new ExamNoVO();
 	    	examno.setCategoryNum("0102");
 	    	examno.setTurn("2019년 정기 기사 3회");
 	    	examno.setTitle("정보관리기술사");
@@ -98,7 +98,7 @@ public class ExamNoDB {
 	    	
 	    	tb_examno.add(examno);
 	    	
-	    	examno = new ExamNo();
+	    	examno = new ExamNoVO();
 	    	examno.setCategoryNum("0103");
 	    	examno.setTurn("2019년 정기 기능사 1회");
 	    	examno.setTitle("정보처리기능사");
@@ -111,20 +111,20 @@ public class ExamNoDB {
 	    	
 	    	tb_examno.add(examno);
 	    	
-	    	examno = new ExamNo();
+	    	examno = new ExamNoVO();
 	    	examno.setCategoryNum("0104");
 	    	examno.setTurn("2019년 정기 기사 1회");
 	    	examno.setTitle("컬러리스트기사");
 	    	examno.setWriteApply("2019.01.25~2019.01.31");
 	    	examno.setWriteExam("2019.03.03");
 	    	examno.setPassDate("2019.03.14");
-	    	examno.setSkillApply("2019.03.15 ~ 2019.03.21");
+	    	examno.setSkillApply("2019.03.15~2019.03.21");
 	    	examno.setSkillExam("2019.04.13~2019.04.27");
 	    	examno.setFinalPass("2019.05.22");
 	    	
 	    	tb_examno.add(examno);
 	    	
-	    	examno = new ExamNo();
+	    	examno = new ExamNoVO();
 	    	examno.setCategoryNum("0104");
 	    	examno.setTurn("2019년 정기 기사 2회");
 	    	examno.setTitle("컬러리스트기사");
@@ -137,7 +137,7 @@ public class ExamNoDB {
 	    	
 	    	tb_examno.add(examno);
 	    	
-	    	examno = new ExamNo();
+	    	examno = new ExamNoVO();
 	    	examno.setCategoryNum("0104");
 	    	examno.setTurn("2019년 정기 기사 3회");
 	    	examno.setTitle("컬러리스트기사");
@@ -150,7 +150,7 @@ public class ExamNoDB {
 	    	
 	    	tb_examno.add(examno);
 	    	
-	    	examno = new ExamNo();
+	    	examno = new ExamNoVO();
 	    	examno.setCategoryNum("0105");
 	    	examno.setTurn("2019년 정기 기사 1회");
 	    	examno.setTitle("제품디자인산업기사");
@@ -163,20 +163,20 @@ public class ExamNoDB {
 	    	
 	    	tb_examno.add(examno);
 	    	
-	    	examno = new ExamNo();
+	    	examno = new ExamNoVO();
 	    	examno.setCategoryNum("0106");
 	    	examno.setTurn("2019년 정기 기사 1회");
-	    	examno.setTitle("제품디자인산업기사");
-	    	examno.setWriteApply("2019.03.29 ~ 2019.04.04");
+	    	examno.setTitle("시각디자인기사");
+	    	examno.setWriteApply("2019.03.29~2019.04.04");
 	    	examno.setWriteExam("2019.04.27");
 	    	examno.setPassDate("2019.05.17");
-	    	examno.setSkillApply("2019.05.20 ~ 2019.05.23");
+	    	examno.setSkillApply("2019.05.20~2019.05.23");
 	    	examno.setSkillExam("2019.06.29~2019.07.12");
 	    	examno.setFinalPass("2019.08.16");
 	    	
 	    	tb_examno.add(examno);
 	    	
-	    	examno = new ExamNo();
+	    	examno = new ExamNoVO();
 	    	examno.setCategoryNum("0107");
 	    	examno.setTurn("2019년 정기 기사 1회");
 	    	examno.setTitle("전기기사");
@@ -189,7 +189,7 @@ public class ExamNoDB {
 	    	
 	    	tb_examno.add(examno);
 	    	
-	    	examno = new ExamNo();
+	    	examno = new ExamNoVO();
 	    	examno.setCategoryNum("0107");
 	    	examno.setTurn("2019년 정기 기사 2회");
 	    	examno.setTitle("전기기사");
@@ -202,7 +202,7 @@ public class ExamNoDB {
 	    	
 	    	tb_examno.add(examno);
 	    	
-	    	examno = new ExamNo();
+	    	examno = new ExamNoVO();
 	    	examno.setCategoryNum("0107");
 	    	examno.setTurn("2019년 정기 기사 3회");
 	    	examno.setTitle("전기기사");
@@ -215,7 +215,7 @@ public class ExamNoDB {
 	    	
 	    	tb_examno.add(examno);
 	    	
-	    	examno = new ExamNo();
+	    	examno = new ExamNoVO();
 	    	examno.setCategoryNum("0108");
 	    	examno.setTurn("2019년 정기 기사 1회");
 	    	examno.setTitle("전기철도산업기사");
@@ -228,7 +228,7 @@ public class ExamNoDB {
 	    	
 	    	tb_examno.add(examno);
 	    	
-	    	examno = new ExamNo();
+	    	examno = new ExamNoVO();
 	    	examno.setCategoryNum("0109");
 	    	examno.setTurn("2019년 정기 기사 1회");
 	    	examno.setTitle("전기응용기술사");
@@ -241,7 +241,7 @@ public class ExamNoDB {
 	    	
 	    	tb_examno.add(examno);
 	    	
-	    	examno = new ExamNo();
+	    	examno = new ExamNoVO();
 	    	examno.setCategoryNum("0109");
 	    	examno.setTurn("2019년 정기 기사 2회");
 	    	examno.setTitle("전기응용기술사");

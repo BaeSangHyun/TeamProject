@@ -1,12 +1,11 @@
 package dao;
 
-import data.Database;
-import vo.UserVO;
-
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import java.util.Set;
+
+import vo.UserVO;
+import data.Database;
 
 public class UserDaoImpl implements UserDao {
 
@@ -78,4 +77,9 @@ public class UserDaoImpl implements UserDao {
     public ArrayList<UserVO> selectUserList() {
         return db.tb_user;
     }
+
+	@Override
+	public void deleteUser(UserVO user) {
+		db.tb_user.remove(user);
+	}
 }

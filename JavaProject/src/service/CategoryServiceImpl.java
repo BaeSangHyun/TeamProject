@@ -3,7 +3,7 @@ package service;
 import dao.CategoryDao;
 import dao.CategoryDaoImpl;
 import vo.ExamCategoryVO;
-import vo.ExamNo;
+import vo.ExamNoVO;
 import vo.MainCategoryVO;
 
 import java.util.ArrayList;
@@ -34,6 +34,11 @@ public class CategoryServiceImpl implements CategoryService {
     @Override
     public void getExamCategory(int menu) {
         ArrayList<ExamCategoryVO> examCategoryVO = categoryDao.getExamCategoryList(menu);
+//        if(menu > examCategoryVO.size()) {
+//            System.out.println("---------------------------------");
+//            System.out.println("목록안의 번호를 입력해주세요");
+//            return;
+//        }
         System.out.println("---------------시험--------------");
         for(int i = 0; i < examCategoryVO.size(); i++){
             System.out.println(i+1 + ". " + examCategoryVO.get(i).getTitle());
@@ -42,10 +47,16 @@ public class CategoryServiceImpl implements CategoryService {
 
     @Override
     public void getExamNo(int menu) {
-        ArrayList<ExamNo> examNo = categoryDao.getExamNo(menu);
-        System.out.println("---------------회차--------------");
+        ArrayList<ExamNoVO> examNo = categoryDao.getExamNo(menu);
+//        if(menu > examNo.size()) {
+//            System.out.println("---------------------------------");
+//            System.out.println("목록안의 번호를 입력해주세요");
+//            return;
+//        }
+        System.out.println("-------------" + examNo.get(0).getTitle() + "------------");
+        System.out.println("\t\t회차\t\t\t\t\t필기시험접수기한\t\t필기시험날짜\t합격발표날짜\t\t실기시험 접수기한\t\t\t\t실기시험\t\t\t최종합격 발표");
         for(int i = 0; i < examNo.size(); i++){
-            System.out.println(i+1 + ". " + examNo.get(i).getTurn() + examNo.get(i).getTitle());
+            System.out.println(i+1 + ". " + examNo.get(i).toString());
         }
     }
 }

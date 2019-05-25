@@ -54,4 +54,8 @@ public class CategoryController {
             }
         }while(menu != 0);
     }
+
+    void applyExam(int m){
+
+    }
 }

@@ -17,4 +17,7 @@ public interface UserDao {
 
     //전체 회원 조회
     ArrayList<UserVO> selectUserList();
+    
+    //회원 삭제
+    void deleteUser(UserVO user);
 }
