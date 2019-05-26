@@ -54,4 +54,8 @@ public class CategoryDaoImpl implements CategoryDao{
         return tempExam;
     }
 
+    @Override
+    public ExamNoVO getExam(int menu) {
+        return tempExam.get(menu-1);
+    }
 }

@@ -22,7 +22,7 @@ public class CandidateDB {
     {
         CandidateVO candidate = new CandidateVO();
         candidate.setCategoryNum("0103");
-        candidate.setTurn("2019년 정기 기사 2회");
+        candidate.setTurn("2019년 정기 기능사 1회");
         candidate.setId("cccc");
         candidate.setPassStatus("합격입니다");
         candidate.setScore("82점");

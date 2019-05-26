@@ -156,7 +156,7 @@ public class PassPercentDB {
 
         passpercent = new PassPercentVO();
         passpercent.setCategoryNum("0108");
-        passpercent.setTurn("2019년 정기 기사 3회");
+        passpercent.setTurn("2019년 정기 기사 1회");
         passpercent.setApplyerNum("33504");
         passpercent.setPassNum("7311");
         passpercent.setPassPercent("21.8%");

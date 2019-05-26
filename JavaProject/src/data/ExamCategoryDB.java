@@ -55,7 +55,7 @@ public class ExamCategoryDB {
     	
     	category = new ExamCategoryVO();
     	category.setMainNum("02");
-    	category.setCategoryNum("0104");
+    	category.setCategoryNum("0201");
     	category.setTitle("컬러리스트기사");
     	category.setPrice("시험수수료 - 필기 : 19,400원 / 실기 : 34,000원");
     	category.setQualify("검정방법 - 필기 : 객관식 4지 택일형 과목당 20문항(과목당 30분) / 실기 : 작업형(6시간 정도)");
@@ -66,7 +66,7 @@ public class ExamCategoryDB {
     	
     	category = new ExamCategoryVO();
     	category.setMainNum("02");
-    	category.setCategoryNum("0105");
+    	category.setCategoryNum("0202");
     	category.setTitle("제품디자인산업기사");
     	category.setPrice("시험수수료 - 필기 : 19,400원 / 실기 : 31,800원");
     	category.setQualify("검정방법 - 필기 : 객관식 4지 택일형 과목당 20문항(과목당 30분) / 실기 : 작업형(7시간 정도)");
@@ -77,7 +77,7 @@ public class ExamCategoryDB {
     	
     	category = new ExamCategoryVO();
     	category.setMainNum("02");
-    	category.setCategoryNum("0106");
+    	category.setCategoryNum("0203");
     	category.setTitle("시각디자인기사");
     	category.setPrice("시험수수료 - 필기 : 19,400원 / 실기 : 29,900원");
     	category.setQualify("검정방법 - 필기 : 객관식 4지 택일형 과목당 20문항(과목당 30분) / 실기 : 작업형(7시간 정도)");
@@ -88,7 +88,7 @@ public class ExamCategoryDB {
     	
     	category = new ExamCategoryVO();
     	category.setMainNum("03");
-    	category.setCategoryNum("0107");
+    	category.setCategoryNum("0301");
     	category.setTitle("전기기사");
     	category.setPrice("시험수수료 - 필기 : 19,400원 / 실기 : 22,600원");
     	category.setQualify("검정방법 - 필기 : 객관식 4지 택일형, 과목당 20문항(과목당 30분) / 실기 : 필답형(2시간 30분)");
@@ -99,7 +99,7 @@ public class ExamCategoryDB {
     	
     	category = new ExamCategoryVO();
     	category.setMainNum("03");
-    	category.setCategoryNum("0108");
+    	category.setCategoryNum("0302");
     	category.setTitle("전기철도산업기사");
     	category.setPrice("시험수수료 - 필기 : 19,400원 / 실기 : 65,700원");
     	category.setQualify("검정방법 - 필기 : 필기 : 객관식 4지 택일형, 과목당 20문항(과목당 30분) / 실기 : 필답형(2시간) ");
@@ -110,7 +110,7 @@ public class ExamCategoryDB {
     	
     	category = new ExamCategoryVO();
     	category.setMainNum("03");
-    	category.setCategoryNum("0109");
+    	category.setCategoryNum("0303");
     	category.setTitle("전기응용기술사");
     	category.setPrice("시험수수료 - 필기 : 67,700원 / 실기 : 87,100원");
     	category.setQualify("검정방법 -  필기 : 단답형 및 주관식 논술형(매교시당 100분, 총 400분) / 면접 : 구술형 면접(30분 정도)");

@@ -15,6 +15,8 @@ public class Controller {
     private CategoryController categoryController = new CategoryController();
     private MypageController mypageController = new MypageController();
     private AnnounceController announceController = new AnnounceController();
+    private CategoryManageController categoryManageController = new CategoryManageController();
+
     public static void main(String[] args) {
         /*
         조 소개 > 주제 소개 > 주제 선정 배경 > 프로그램 구조 > 시연
@@ -35,9 +37,10 @@ public class Controller {
 	void begin(){
         Scanner s = new Scanner(System.in);
         
-        int menu;
-        if(Session.loginUser == null){
-        	do{
+        int menu=1;
+        do{
+            if(Session.loginUser == null){
+
         		System.out.println();
         		System.out.println("	┌──────────┐");
         		System.out.println(" 	  ♡ Q_net	");
@@ -66,20 +69,12 @@ public class Controller {
                     case 2: //로그인
                         userService.login();
                         if(Session.loginUser != null){
-                            begin();
+//                            continue;
                             break;
                         }
                         break;
                     case 3: //기술 자격시험 안내 & 접수
-                        if(Session.loginUser == null) {
-                            userService.login();
-                            if (Session.loginUser != null) {
-                                begin();
-                            }
-                        } else if(Session.loginUser != null){
-                            begin();
-                        }
-                        begin();
+                        categoryController.mainCategoryList();
                         break;
                     case 4: //합격자 & 답안 발표
                     	announceController.announce();
@@ -95,80 +90,87 @@ public class Controller {
                         System.exit(0); //프로그램 종료 메서드
                         break;
                 }
-            }while(menu != 0);
-        } else {
-        	if(Session.userRank.equals("user")){
-        		System.out.println("--------------Q_net--------------");
-                System.out.println("1. 마이페이지");
-                System.out.println("2. 로그아웃");
-                System.out.println("3. 기술 자격시험 안내 & 접수");
-                System.out.println("4. 합격자 & 답안 발표");
-    			System.out.println("5. 고객지원");
-    			System.out.println("6. 자격증 발급 및 확인");
-    			System.out.println("0. 종료하기");
-    			System.out.println("---------------------------------");
-                System.out.print("메뉴에 해당하는 번호 입력 >");
 
-                menu = Integer.parseInt(s.nextLine());
+            } else {
+                if(Session.userRank.equals("user")){
+                    System.out.println("--------------Q_net--------------");
+                    System.out.println("1. 마이페이지");
+                    System.out.println("2. 로그아웃");
+                    System.out.println("3. 기술 자격시험 안내 & 접수");
+                    System.out.println("4. 합격자 & 답안 발표");
+                    System.out.println("5. 고객지원");
+                    System.out.println("6. 자격증 발급 및 확인");
+                    System.out.println("0. 종료하기");
+                    System.out.println("---------------------------------");
+                    System.out.print("메뉴에 해당하는 번호 입력 >");
 
-                switch (menu){
-                    case 1: //마이페이지
-                    	mypageController.info();
-                        break;
-                    case 2: //로그인
-                        mypageController.info();
-                        break;
-                    case 3: //기술 자격시험 안내 & 접수
-                        categoryController.mainCategoryList();
-                        break;
-                    case 4: //합격자 & 답안 발표
-                    	announceController.announce();
-                        break;
-                    case 5: //고객지원
-                    	boardController.support();
-                        break;
-                    case 6: //자격증 발급 및 확인
-                    	certificateController.getCertificate();
-                    	break;
-                    case 0: //프로그램 종료
-                        System.out.println("프로그램 종료");
-                        System.exit(0); //프로그램 종료 메서드
-                        break;
+                    menu = Integer.parseInt(s.nextLine());
+
+                    switch (menu){
+                        case 1: //마이페이지
+                            mypageController.info();
+                            break;
+                        case 2: //로그인
+                            mypageController.info();
+                            break;
+                        case 3: //기술 자격시험 안내 & 접수
+                            categoryController.mainCategoryList();
+    //                        CategorySearch<CategoryController> categorySearch = new CategorySearch<CategoryController>();
+    //                        categorySearch.set(categoryController);
+    //                        categorySearch.mainCategoryList();
+                            break;
+                        case 4: //합격자 & 답안 발표
+                            announceController.announce();
+                            break;
+                        case 5: //고객지원
+                            boardController.support();
+                            break;
+                        case 6: //자격증 발급 및 확인
+                            certificateController.getCertificate();
+                            break;
+                        case 0: //프로그램 종료
+                            System.out.println("프로그램 종료");
+                            System.exit(0); //프로그램 종료 메서드
+                            break;
+                    }
+                } else if(Session.userRank.equals("admin")){
+                    System.out.println("--------관리자 페이지 입니다----------");
+                    System.out.println("1. 회원목록");
+                    System.out.println("2. 로그아웃");
+                    System.out.println("3. 합격자 & 답안 발표");
+                    System.out.println("4. 고객지원");
+                    System.out.println("5. 자격증 발급 및 확인");
+                    System.out.println("0. 종료하기");
+                    System.out.println("---------------------------------");
+                    System.out.print("메뉴에 해당하는 번호 입력 >");
+
+                    menu = Integer.parseInt(s.nextLine());
+
+                    switch (menu){
+                        case 1: //회원목록
+    //                    	adminController.getUserList();
+                            break;
+                        case 2: //로그아웃
+                            break;
+                        case 3: //합격자 & 답안 발표
+                            categoryManageController.mainCategoryList();
+    //                        CategorySearch<CategoryController> categorySearch = new CategorySearch<CategoryController>();
+    //                        categorySearch.set(categoryController);
+    //                        categorySearch.mainCategoryList();
+                            break;
+                        case 4: //고객지원
+                            boardController.support();
+                            break;
+                        case 5: //자격증 발급 및 확인
+                            certificateController.getCertificate();
+                            break;
+                        case 0: //프로그램 종료
+                            System.out.println("프로그램 종료");
+                            System.exit(0); //프로그램 종료 메서드
+                            break;
+                    }
                 }
-        	} else if(Session.userRank.equals("admin")){
-        		System.out.println("--------관리자 페이지 입니다----------");
-                System.out.println("1. 회원목록");
-                System.out.println("2. 로그아웃");
-                System.out.println("3. 합격자 & 답안 발표");
-                System.out.println("4. 고객지원");
-    			System.out.println("5. 자격증 발급 및 확인");
-    			System.out.println("0. 종료하기");
-    			System.out.println("---------------------------------");
-                System.out.print("메뉴에 해당하는 번호 입력 >");
-
-                menu = Integer.parseInt(s.nextLine());
-
-                switch (menu){
-                    case 1: //회원목록
-//                    	adminController.getUserList();
-                        break;
-                    case 2: //로그아웃
-                        break;
-                    case 3: //합격자 & 답안 발표
-                        categoryController.mainCategoryList();
-                        break;
-                    case 4: //고객지원
-                    	boardController.support();
-                        break;
-                    case 5: //자격증 발급 및 확인
-                    	certificateController.getCertificate();
-                        break;
-                    case 0: //프로그램 종료
-                        System.out.println("프로그램 종료");
-                        System.exit(0); //프로그램 종료 메서드
-                        break;
-                }
-        	}
-        }
+            }
+        }while(menu != 0);
     }
 }

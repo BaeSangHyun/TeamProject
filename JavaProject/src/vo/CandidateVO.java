@@ -39,5 +39,4 @@ public class CandidateVO {
 		this.score = score;
 	}
 	
-	
 }
