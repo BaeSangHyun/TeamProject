@@ -6,4 +6,12 @@ public class Utility {
 
         }
     }
+
+    public boolean checkNum(Object o){
+        if(!(o instanceof Integer)){
+            System.out.println("[ 숫자를 입력해주세요. ]");
+            return true;
+        }
+        return false;
+    }
 }

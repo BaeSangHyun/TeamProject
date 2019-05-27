@@ -1,11 +1,13 @@
 package service;
 
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Scanner;
 
+import util.Utility;
 import vo.ApplyStatusVO;
 import vo.CandidateVO;
 import vo.ExamCategoryVO;
@@ -49,7 +51,7 @@ public class CategoryServiceImpl implements CategoryService {
 //            System.out.println("목록안의 번호를 입력해주세요");
 //            return;
 //        }
-        System.out.println("---------------시험--------------");
+        System.out.println("---------------시험 목록--------------");
         for(int i = 0; i < examCategoryVO.size(); i++){
             System.out.println(i+1 + ". " + examCategoryVO.get(i).getTitle());
         }
@@ -71,6 +73,15 @@ public class CategoryServiceImpl implements CategoryService {
     }
 
     @Override
+    public void showDetail(int menu, int num) {
+        Scanner s = new Scanner(System.in);
+        ExamCategoryVO examCategoryVO = categoryDao.getExamCategoryList(menu).get(num-1);
+        System.out.println("---------------------------------상세보기-------------------------------------");
+        System.out.println(examCategoryVO);
+        System.out.println("------------------------------------------------------------------------------");
+    }
+
+    @Override
     public void applyExam(int menu, int type) {
         ExamNoVO exam = categoryDao.getExam(menu);
         if(type == 1){
@@ -79,11 +90,30 @@ public class CategoryServiceImpl implements CategoryService {
                 setCandidate(exam, type);
             }
         } else if(type == 2){
+            if(!writePassCheck(exam)){
+                System.out.println("실기시험 대상자가 아닙니다.");
+                return;
+            }
+
             String[] skillDate = exam.getSkillApply().split("~");
             if(dateMath(skillDate)){
                 setCandidate(exam, type);
             }
         }
+    }
+
+    @Override
+    public boolean writePassCheck(ExamNoVO examNoVO) {
+        ArrayList<CandidateVO> candidateVO = database.tb_candidate;
+        for(int i = 0; i < candidateVO.size(); i++){
+            CandidateVO candidate = candidateVO.get(i);
+            if(Session.loginUser.getId().equals(candidate.getId()) && examNoVO.getTurn().equals(candidate.getTurn())
+                && examNoVO.getCategoryNum().equals(candidate.getCategoryNum()) && candidate.getExamType().equals("필기")
+                && candidate.getPassStatus().equals("합격")){
+                return true;
+            }
+        }
+        return false;
     }
 
     @Override
@@ -126,12 +156,17 @@ public class CategoryServiceImpl implements CategoryService {
         candidateVO.setScore(score);
         if(score >= 60)candidateVO.setPassStatus("합격");
         else candidateVO.setPassStatus("불합격");
+        if(type ==1) candidateVO.setExamType("필기");
+        else candidateVO.setExamType("실기");
         database.tb_candidate.add(candidateVO);
 
         ApplyStatusVO applyStatus = new ApplyStatusVO();
+        Date date = new Date();
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         applyStatus.setCategoryNum(exam.getCategoryNum());
         applyStatus.setTurn(exam.getTurn());
         applyStatus.setId(Session.loginUser.getId());
+        applyStatus.setExamDate(simpleDateFormat.format(date));
         applyStatus.setApplyStatus("접수완료");
 
         if(type == 1) applyStatus.setExamType("필기");
@@ -219,7 +254,9 @@ public class CategoryServiceImpl implements CategoryService {
         } else if(type.equals("ExamNo")){
             ArrayList<ExamNoVO> examNoVO = categoryDao.getExamNo(menu);
             System.out.printf("삭제할 항목 > ");
-            int num = Integer.parseInt(s.nextLine());
+            String str = s.nextLine();
+            if(new Utility().checkNum(str)) return;
+            int num = Integer.parseInt(str);
             for(int i = 0; i < database.tb_examno.size(); i++){
                 if(database.tb_examno.get(i).getTurn().equals(examNoVO.get(num-1).getTurn())){
                     database.tb_examno.remove(i);
@@ -233,7 +270,9 @@ public class CategoryServiceImpl implements CategoryService {
         Scanner s = new Scanner(System.in);
         if(type.equals("MainCategory")){
             System.out.print("수정할 항목을 선택해 주세요 > ");
-            MainCategoryVO categoryVO = database.tb_mainCategory.get(Integer.parseInt(s.nextLine())-1);
+            String str = s.nextLine();
+            if(new Utility().checkNum(str)) return;
+            MainCategoryVO categoryVO = database.tb_mainCategory.get(Integer.parseInt(str)-1);
             System.out.print("변경하실 이름을 적어주세요 > ");
             categoryVO.setMainName(s.nextLine());
 
@@ -243,25 +282,96 @@ public class CategoryServiceImpl implements CategoryService {
 
             System.out.print("수정할 항목을 선택해 주세요 > ");
             ExamCategoryVO examCategoryVO = categoryDB.get(Integer.parseInt(s.nextLine())-1);
-            System.out.printf("[ 1. 시험명 | ");
-            System.out.print("시험명 > ");
-            modi = s.nextLine();
-            if(!(modi.equals("0") || modi.equals(""))) examCategoryVO.setTitle(modi);
-            System.out.print("가격 > ");
-            modi = s.nextLine();
-            if(!(modi.equals("0") || modi.equals(""))) examCategoryVO.setPrice(modi);
-            System.out.print("검정방법 > ");
-            modi = s.nextLine();
-            if(!(modi.equals("0") || modi.equals(""))) examCategoryVO.setQualify(modi);
-            System.out.print("합격기준 > ");
-            modi = s.nextLine();
-            if(!(modi.equals("0") || modi.equals(""))) examCategoryVO.setPass(modi);
-            System.out.print("출제경향 > ");
-            modi = s.nextLine();
-            if(!(modi.equals("0") || modi.equals(""))) examCategoryVO.setExamContents(modi);
+            System.out.println("[ 1. 시험명 | 2. 가격 | 3. 검정방법 | 4. 합격기준 | 5. 출제경향 | 0. 돌아가기]");
+            System.out.print("수정할 항목을 선택하세요 > ");
+            String str = s.nextLine();
+            if(new Utility().checkNum(str)) return;
+            int modify = Integer.parseInt(str);
+            switch (modify){
+                case 1 :
+                    System.out.print("시험명 > ");
+                    modi = s.nextLine();
+                    if(!(modi.equals("0") || modi.equals(""))) examCategoryVO.setTitle(modi);
+                    break;
+                case 2 :
+                    System.out.print("가격 > ");
+                    modi = s.nextLine();
+                    if(!(modi.equals("0") || modi.equals(""))) examCategoryVO.setPrice(modi);
+                    break;
+                case 3 :
+                    System.out.print("검정방법 > ");
+                    modi = s.nextLine();
+                    if(!(modi.equals("0") || modi.equals(""))) examCategoryVO.setQualify(modi);
+                    break;
+                case 4 :
+                    System.out.print("합격기준 > ");
+                    modi = s.nextLine();
+                    if(!(modi.equals("0") || modi.equals(""))) examCategoryVO.setPass(modi);
+                    break;
+                case 5 :
+                    System.out.print("출제경향 > ");
+                    modi = s.nextLine();
+                    if(!(modi.equals("0") || modi.equals(""))) examCategoryVO.setExamContents(modi);
+                    break;
+                case 0 :
+                    break;
+                default:
+                    System.out.println("[ 잘못된 입력입니다. ]");
+                    break;
+            }
 
         } else if(type.equals("ExamNo")){
-
+            ArrayList<ExamNoVO> examNoDB = categoryDao.getExamNo(menu);
+            String modi;
+            System.out.println("수정할 항목을 선택해 주세요 > ");
+            ExamNoVO examNoVO = examNoDB.get(Integer.parseInt(s.nextLine())-1);
+            System.out.print("[ 1. 제목 | 2. 필기시험접수기한 | 3. 필기시험날짜 | 4. 합격발표날짜 | 5. 실기시험 접수기한 | 6. 실기시험 | 7. 최종합격 발표 | 0. 돌아가기 ]");
+            String str = s.nextLine();
+            if(new Utility().checkNum(str)) return;
+            int modify = Integer.parseInt(str);
+            switch (modify){
+                case 1 :
+                    System.out.print("제목 > ");
+                    modi = s.nextLine();
+                    if(!(modi.equals("0") || modi.equals(""))) examNoVO.setTurn(modi);
+                    break;
+                case 2 :
+                    System.out.print("필기시험접수기한 > ");
+                    modi = s.nextLine();
+                    if(!(modi.equals("0") || modi.equals(""))) examNoVO.setWriteApply(modi);
+                    break;
+                case 3 :
+                    System.out.print("필기시험날짜 > ");
+                    modi = s.nextLine();
+                    if(!(modi.equals("0") || modi.equals(""))) examNoVO.setWriteExam(modi);
+                    break;
+                case 4 :
+                    System.out.print("합격발표날짜 > ");
+                    modi = s.nextLine();
+                    if(!(modi.equals("0") || modi.equals(""))) examNoVO.setPassDate(modi);
+                    break;
+                case 5 :
+                    System.out.print("실기시험 접수기한 > ");
+                    modi = s.nextLine();
+                    if(!(modi.equals("0") || modi.equals(""))) examNoVO.setSkillApply(modi);
+                    break;
+                case 6 :
+                    System.out.print("실기시험 > ");
+                    modi = s.nextLine();
+                    if(!(modi.equals("0") || modi.equals(""))) examNoVO.setSkillExam(modi);
+                    break;
+                case 7 :
+                    System.out.print("최종합격발표 > ");
+                    modi = s.nextLine();
+                    if(!(modi.equals("0") || modi.equals(""))) examNoVO.setFinalPass(modi);
+                    break;
+                case 0 :
+                    break;
+                default:
+                    System.out.println("[ 잘못된 입력입니다. ]");
+                    break;
+            }
         }
     }
+
 }

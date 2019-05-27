@@ -7,7 +7,10 @@ public class CandidateVO {
 	private String id;	//아이디
 	private String passStatus;	//합격여부
 	private int score;	//점수
-	
+	private String examType;
+
+
+
 	public String getCategoryNum() {
 		return categoryNum;
 	}
@@ -37,6 +40,13 @@ public class CandidateVO {
 	}
 	public void setScore(int score) {
 		this.score = score;
+	}
+	public String getExamType() {
+		return examType;
+	}
+
+	public void setExamType(String examType) {
+		this.examType = examType;
 	}
 	
 }

@@ -52,6 +52,9 @@ public class ExamCategoryVO {
 	public void setExamContents(String examContents) {
 		this.examContents = examContents;
 	}
-	
-	
+
+	@Override
+	public String toString(){
+		return "시험명 : " + title + "\n가격 : " + price + "\n검정방법 : " + qualify + "\n합격기준 : " + pass + "\n출제경향 : " + examContents;
+	}
 }

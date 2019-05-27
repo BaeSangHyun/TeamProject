@@ -202,7 +202,7 @@ public ArrayList<ExamCategoryVO> tb_examcategory = new ArrayList<ExamCategoryVO>
     	examno.setWriteApply("2019-01-25~2019-01-31");
     	examno.setWriteExam("2019-03-03");
     	examno.setPassDate("2019-03-14");
-    	examno.setSkillApply("2019-03-15~2019-03-21");
+    	examno.setSkillApply("2019-05-15~2019-07-21");
     	examno.setSkillExam("2019-04-13~2019-04-27");
     	examno.setFinalPass("2019-05-22");
     	
@@ -215,7 +215,7 @@ public ArrayList<ExamCategoryVO> tb_examcategory = new ArrayList<ExamCategoryVO>
     	examno.setWriteApply("2019-03-29~2019-04-04");
     	examno.setWriteExam("2019-04-27");
     	examno.setPassDate("2019-05-17");
-    	examno.setSkillApply("2019-05-20~2019-05-27");
+    	examno.setSkillApply("2019-05-20~2019-07-27");
     	examno.setSkillExam("2019-06-29~2019-07-12");
     	examno.setFinalPass("2019-08-16");
     	
@@ -440,7 +440,7 @@ public ArrayList<ExamCategoryVO> tb_examcategory = new ArrayList<ExamCategoryVO>
     	ExamList.setApplierNum("12456734");
     	ExamList.setTurn("2019년 정기 기사 1회");
     	ExamList.setExamType("필기");
-    	ExamList.setExamDate("2019.03.03");
+    	ExamList.setExamDate("2019-03-03");
     	ExamList.setApplyStatus("접수완료");
     	tb_applyStatusList.add(ExamList);
     	
@@ -450,7 +450,7 @@ public ArrayList<ExamCategoryVO> tb_examcategory = new ArrayList<ExamCategoryVO>
     	ExamList.setApplierNum("17468567");
     	ExamList.setTurn("2019년 정기 기사 2회");
     	ExamList.setExamType("필기");
-    	ExamList.setExamDate("2019.04.27");
+    	ExamList.setExamDate("2019-04-27");
     	ExamList.setApplyStatus("접수진행중(미결제)");
     	tb_applyStatusList.add(ExamList);
     	
@@ -460,7 +460,7 @@ public ArrayList<ExamCategoryVO> tb_examcategory = new ArrayList<ExamCategoryVO>
     	ExamList.setApplierNum("47457934");
     	ExamList.setTurn("2019년 정기 기능사 1회");
     	ExamList.setExamType("필기");
-    	ExamList.setExamDate("2019.08.10");
+    	ExamList.setExamDate("2019-08-10");
     	ExamList.setApplyStatus("접수완료");
     	tb_applyStatusList.add(ExamList);
     	
@@ -474,7 +474,9 @@ public ArrayList<ExamCategoryVO> tb_examcategory = new ArrayList<ExamCategoryVO>
         candidate.setCategoryNum("0103");
         candidate.setTurn("2019년 정기 기능사 1회");
         candidate.setId("cccc");
+		candidate.setPassStatus("합격");
         candidate.setScore(82);
+		candidate.setExamType("필기");
 
         tb_candidate.add(candidate);
 
@@ -482,7 +484,9 @@ public ArrayList<ExamCategoryVO> tb_examcategory = new ArrayList<ExamCategoryVO>
         candidate.setCategoryNum("0201");
         candidate.setTurn("2019년 정기 기사 2회");
         candidate.setId("bbbb");
+		candidate.setPassStatus("합격");
         candidate.setScore(61);
+		candidate.setExamType("실기");
 
         tb_candidate.add(candidate);
 
@@ -490,7 +494,9 @@ public ArrayList<ExamCategoryVO> tb_examcategory = new ArrayList<ExamCategoryVO>
         candidate.setCategoryNum("0101");
         candidate.setTurn("2019년 정기 기사 1회");
         candidate.setId("aaaa");
+		candidate.setPassStatus("합격");
         candidate.setScore(92);
+		candidate.setExamType("필기");
 
         tb_candidate.add(candidate);
         
@@ -498,7 +504,9 @@ public ArrayList<ExamCategoryVO> tb_examcategory = new ArrayList<ExamCategoryVO>
         candidate.setCategoryNum("0101");
         candidate.setTurn("2019년 정기 기사 1회");
         candidate.setId("bbbs");
+		candidate.setPassStatus("합격");
         candidate.setScore(82);
+		candidate.setExamType("필기");
 
         tb_candidate.add(candidate);
         
@@ -506,15 +514,19 @@ public ArrayList<ExamCategoryVO> tb_examcategory = new ArrayList<ExamCategoryVO>
         candidate.setCategoryNum("0101");
         candidate.setTurn("2019년 정기 기사 1회");
         candidate.setId("bbdbs");
+		candidate.setPassStatus("합격");
         candidate.setScore(72);
+		candidate.setExamType("실기");
 
         tb_candidate.add(candidate);
         
         candidate = new CandidateVO();
-        candidate.setCategoryNum("0101");
+        candidate.setCategoryNum("0301");
         candidate.setTurn("2019년 정기 기사 1회");
         candidate.setId("aaaa");
+		candidate.setPassStatus("불합격");
         candidate.setScore(52);
+		candidate.setExamType("필기");
 
         tb_candidate.add(candidate);
         
@@ -524,6 +536,7 @@ public ArrayList<ExamCategoryVO> tb_examcategory = new ArrayList<ExamCategoryVO>
         candidate.setId("bbb");
         candidate.setPassStatus("합격");
         candidate.setScore(89);
+		candidate.setExamType("실기");
 
         tb_candidate.add(candidate);
     }

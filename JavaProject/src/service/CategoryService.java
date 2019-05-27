@@ -13,6 +13,9 @@ public interface CategoryService {
     //시험 회차 리스트
     void getExamNo(int menu);
 
+    //상세보기
+    void showDetail(int menu, int num);
+
     //시험 접수
     void applyExam(int menu, int type);
 
@@ -21,6 +24,9 @@ public interface CategoryService {
 
     //응시자, 시험접수현황에 추가
     void setCandidate(ExamNoVO exam, int type);
+
+    //필기시험합격여부 확인
+    boolean writePassCheck(ExamNoVO examNoVO);
 
 
     //추가
