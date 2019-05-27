@@ -20,4 +20,7 @@ public interface UserDao {
     
     //회원 삭제
     void deleteUser(UserVO user);
+    
+    //id체크
+	boolean checkUserId(HashMap<String, String> param);
 }

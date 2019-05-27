@@ -1,10 +1,19 @@
 package dao;
 
+import java.util.ArrayList;
+
+import vo.AnswerSheetVO;
+import vo.CandidateVO;
+
 public interface AnnounceDao {
 	
-	void passAnnounce();
 	
-	void answerAnnounce();
+	
+	ArrayList<AnswerSheetVO> answerAnnounce();
+
+	ArrayList<CandidateVO> passAnnounce();
+
+	void insert(AnswerSheetVO answer);
 	
 	
 }

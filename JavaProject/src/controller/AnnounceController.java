@@ -17,7 +17,7 @@ public class AnnounceController {
 	void announce(){
 		Scanner s = new Scanner(System.in);
 		
-		int menu;
+		int mainMenu;
 		
 		System.out.println("┌────────────────────┐");
         System.out.println(" Q_net ★합격자/답안발표★");
@@ -26,21 +26,21 @@ public class AnnounceController {
 		System.out.println("2.답안발표");
 		System.out.println("0.뒤로가기");
 
-		menu = Integer.parseInt(s.nextLine());
+		mainMenu = Integer.parseInt(s.nextLine());
 		
-		switch(menu){
+		switch(mainMenu){
 			case 1: //합격발표
-				announceMainCategoryList();
+				announceMainCategoryList(mainMenu);
 				break;
 			case 2: //답안발표
-				announceMainCategoryList();
+				announceMainCategoryList(mainMenu);
 				break;
 			case 0: //뒤로가기
 				break;
 		}		
 	}
 	
-	void announceMainCategoryList(){
+	void announceMainCategoryList(int mainMenu){
         int menu;
         do {
             Scanner s = new Scanner(System.in);
@@ -50,13 +50,13 @@ public class AnnounceController {
             System.out.print("해당 종목 번호를 입력하세요 > ");
             menu = Integer.parseInt(s.nextLine());
             if(menu != 0){
-            	announceCategoryList(menu);
+            	announceCategoryList(mainMenu, menu);
             }
 
         } while (menu != 0);
     }
 
-    void announceCategoryList(int m){
+    void announceCategoryList(int mainMenu, int m){
         int menu;
         do{
             Scanner s = new Scanner(System.in);
@@ -66,12 +66,12 @@ public class AnnounceController {
             System.out.print("해당 시험 번호를 입력하세요 > ");
             menu = Integer.parseInt(s.nextLine());
             if(menu != 0){
-            	announceExamNo(menu);
+            	announceExamNo(mainMenu, menu);
             }
         }while(menu != 0);
     }
 
-    void announceExamNo(int m){
+    void announceExamNo(int mainMenu, int m){
         int menu;
         do{
             Scanner s = new Scanner(System.in);
@@ -80,15 +80,13 @@ public class AnnounceController {
             System.out.println("---------------------------------");
             System.out.print("해당 회차 번호를 입력하세요 > ");
             menu = Integer.parseInt(s.nextLine());
-            if(menu != 0){
+            if(menu != 0 && mainMenu == 1){
             	announceService.passAnnounce(menu);
+            }else if(menu != 0 && mainMenu == 2){
+            	announceService.answerAnnounce(menu);
+            }else if(menu == 0){
+            	break;
             }
         }while(menu != 0);
     }
-    
-    void candidate(int m){
-    	int menu;
-    		
-    }
-	
 }

@@ -6,9 +6,16 @@ public class UserVO {
     private String pwd;	//패스워드
     private String name;	//이름
     private String rank;	//등급
+    private String comment; //댓글 (추가)
     private String tel;		//전화번호
 //    private String addr;	//주소
     
+	public String getComment() {
+		return comment;
+	}
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
 	public String getTel() {
 		return tel;
 	}

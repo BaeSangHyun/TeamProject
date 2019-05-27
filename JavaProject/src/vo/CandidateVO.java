@@ -6,7 +6,7 @@ public class CandidateVO {
 	private String turn;	//회차
 	private String id;	//아이디
 	private String passStatus;	//합격여부
-	private String score;	//점수
+	private int score;	//점수
 	
 	public String getCategoryNum() {
 		return categoryNum;
@@ -32,10 +32,10 @@ public class CandidateVO {
 	public void setPassStatus(String passStatus) {
 		this.passStatus = passStatus;
 	}
-	public String getScore() {
+	public int getScore() {
 		return score;
 	}
-	public void setScore(String score) {
+	public void setScore(int score) {
 		this.score = score;
 	}
 	

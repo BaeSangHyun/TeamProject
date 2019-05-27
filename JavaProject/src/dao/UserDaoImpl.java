@@ -11,7 +11,7 @@ public class UserDaoImpl implements UserDao {
 
     private static UserDaoImpl instance;
 
-    private UserDaoImpl(){}
+    public UserDaoImpl(){}
 
     public static UserDaoImpl getInstance(){
         if(instance == null){
@@ -81,5 +81,23 @@ public class UserDaoImpl implements UserDao {
 	@Override
 	public void deleteUser(UserVO user) {
 		db.tb_user.remove(user);
+	}
+	
+	//id체크
+	@Override
+	public boolean checkUserId(HashMap<String, String> param) {
+		boolean flag = false;
+		String id = param.get("ID");
+		UserVO userVO;
+		 
+        for(int i = 0; i < db.tb_user.size(); i++){
+        	userVO = (UserVO)db.tb_user.get(i);
+        	if(id.equals(userVO.getId())) {
+        		flag = true;
+        		break;
+        	}
+        }
+		
+        return flag;
 	}
 }

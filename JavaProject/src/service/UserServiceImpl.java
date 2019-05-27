@@ -22,21 +22,22 @@ public class UserServiceImpl implements UserService{
         return instance;
     }
     
+    Scanner s = new Scanner(System.in);
     UserDao userDao = UserDaoImpl.getInstance();
 
+    //회원가입
     @Override
     public void join() {
-        Scanner s = new Scanner(System.in);
         
         System.out.println("┌────────────────────┐");
         System.out.println("   Q_net ★회원가입★	");
-        System.out.println("└────────────────────┘");       
-
-        System.out.print("  아이디 : ");
+        System.out.println("└────────────────────┘"); 
+        
+        System.out.print("아이디 : ");
         String id = s.nextLine();
-        System.out.print("  비밀번호 : ");
+        System.out.print("비밀번호 : ");
         String pwd = s.nextLine();
-        System.out.print("  이름 : ");
+        System.out.print("이름 : ");
         String name = s.nextLine();
         System.out.print("전화번호 : ");
         String tel = s.nextLine();
@@ -58,34 +59,42 @@ public class UserServiceImpl implements UserService{
         }
     }
 
+    //로그인
     @Override
     public void login() {
-        Scanner s = new Scanner(System.in);
         
         System.out.println("┌────────────────────┐");
         System.out.println("    Q_net ★로그인★	  ");
-        System.out.println("└────────────────────┘");       
+        System.out.println("└────────────────────┘");     
         
-        System.out.print("  아이디 : ");
+        System.out.print("아이디 : ");
         String id = s.nextLine();
-        System.out.print("  비밀번호 : ");
+        System.out.print("비밀번호 : ");
         String pwd = s.nextLine();
 
         HashMap<String,String> param = new HashMap<String, String>();
         param.put("ID", id);
         param.put("PASSWORD", pwd);
 
-        UserVO user = userDao.selectUser(param);
-        if(user == null){
-            System.out.println("아이디 혹은 비밀번호를 잘못 입력하셨습니다.");
-        } else {
-            Session.loginUser = user;
-            Session.userRank = user.getRank();
-            System.out.println("로그인 성공!!");
-            System.out.println(user.getName() + "님 환영합니다♡");
+        
+        //id체크
+        boolean flag = userDao.checkUserId(param);
+        if(!flag) {
+        	System.out.println("아이디가 존재하지 않습니다.");
+        }else{
+        	UserVO user = userDao.selectUser(param);
+        	if(user == null){
+        		System.out.println("비밀번호를 잘못 입력하셨습니다.");
+        	} else {
+        		Session.loginUser = user;
+        		Session.userRank = user.getRank();
+        		System.out.println("로그인 성공!!");
+        		System.out.println(user.getName() + "님 환영합니다♡");
+        	}     	
         }
     }
 
+    //회원목록
     @Override
     public void userList() {
         ArrayList<UserVO> userList = userDao.selectUserList();
@@ -101,4 +110,10 @@ public class UserServiceImpl implements UserService{
         }
         System.out.println("---------------------------------------");
     }
+
+    //로그아웃
+	@Override
+	public void logout() {
+		Session.loginUser = null;
+	}
 }

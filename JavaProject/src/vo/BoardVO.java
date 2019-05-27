@@ -11,14 +11,7 @@ public class BoardVO {
 	private String answerWriter;	//답변 작성자
 	private String answerContent;	//답변 내용
 	private String answerDate;	//답변 날짜
-	private int views; //조회수 (추가)
 	
-	public int getViews() {
-		return views;
-	}
-	public void setViews(int views) {
-		this.views = views;
-	}
 	public String getBoardType() {
 		return boardType;
 	}

@@ -1,12 +1,8 @@
 package dao;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 
 import vo.BoardVO;
-import vo.UserVO;
-import data.BoardDB;
 import data.Database;
 
 public class BoardDaoImpl implements BoardDao {
@@ -20,26 +16,41 @@ public class BoardDaoImpl implements BoardDao {
         }
         return instance;
     }
+    Database database = Database.getInstance();
     
-    BoardDB db = BoardDB.getInstance();
+	@Override
+	public ArrayList<BoardVO> getBoard(String type) {
+		ArrayList<BoardVO> rtnBoard = new ArrayList<BoardVO>();
+		if(type.equals("Notice")){
+			for(int i=0; i<database.tb_noticeBoardDB.size(); i++){
+				BoardVO boardVO = database.tb_noticeBoardDB.get(i);
+				rtnBoard.add(boardVO);
+			}
+		}else if(type.equals("FAQ")){
+			for(int i=0; i<database.tb_FAQBoardDB.size(); i++){
+				BoardVO boardVO = database.tb_FAQBoardDB.get(i);
+				rtnBoard.add(boardVO);
+			}
+		}else if(type.equals("User")){
+			for(int i=0; i<database.tb_userBoardDB.size(); i++){
+				BoardVO boardVO = database.tb_userBoardDB.get(i);
+				rtnBoard.add(boardVO);
+			}
+		}
+		
+		return rtnBoard;
+	}
 
 	@Override
 	public void insertbd(String type, BoardVO boardVO) {
-		db.boardDB.add(boardVO);
+		if (type.equals("Notice")) {
+			database.tb_noticeBoardDB.add(boardVO);
+		} else if (type.equals("FAQ")) {
+			database.tb_FAQBoardDB.add(boardVO);
+		} else if (type.equals("User")) {
+			database.tb_userBoardDB.add(boardVO);
+		}
+
 	}
 
-	@Override
-	public ArrayList<BoardVO> selectBoard(String type) {
-		
-		ArrayList<BoardVO> rtnBoard = new ArrayList<BoardVO>();
-		
-		for(int i=0; i<db.boardDB.size(); i++){
-			BoardVO board = db.boardDB.get(i);
-			if(db.boardDB.get(i).getBoardType().equals(type)){
-				rtnBoard.add(board);
-			}
-		}
-		return rtnBoard;
-	}
-	
 }
