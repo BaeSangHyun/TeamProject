@@ -35,15 +35,14 @@ public class BoardController {
 			boardFunction("FAQ", "NoWrite");
 			break;
 		case 3: // 고객 참여 게시판
-			if (session.loginUser == null) {
+			if (Session.loginUser == null) {
 				System.out.println("로그인 해주세요.");
 				userService.login();
-				if (session.loginUser != null) {
-					boardFunction("User", "Write");
-					break;
-				}
 			}
-			boardFunction("User", "Write");
+			if (session.loginUser != null) {
+				boardFunction("User", "Write");
+				break;
+			}
 			break;
 		case 0:
 			break;

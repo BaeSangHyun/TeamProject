@@ -3,8 +3,8 @@ package vo;
 //시험 회차
 public class ExamNoVO {
 	private String categoryNum;	//중분류 번호
-	private String turn;	//회차
-	private String title;	//회차제목
+	private String turn;		//회차
+	private String title;		//회차제목
 	//날짜 서식 : yyyy-MM-dd or yyyy-MM-dd~yyyy-MM-dd
 	private String writeApply;	//필기시험접수기한
 	private String writeExam;	//필기시험날짜

@@ -2,15 +2,15 @@ package vo;
 
 //게시판유형
 public class BoardVO {
-	private String boardType;	//게시판 유형
-	private String categoryNum; //중분류 번호
-	private String boardTitle;	//제목
+	private String boardType;		//게시판 유형
+	private String categoryNum; 	//중분류 번호
+	private String boardTitle;		//제목
 	private String boardContent;	//내용
-	private String boardWriter;	//작성자
-	private String boardDate;	//작성 날짜
+	private String boardWriter;		//작성자
+	private String boardDate;		//작성 날짜
 	private String answerWriter;	//답변 작성자
 	private String answerContent;	//답변 내용
-	private String answerDate;	//답변 날짜
+	private String answerDate;		//답변 날짜
 	
 	public String getBoardType() {
 		return boardType;

@@ -43,7 +43,7 @@ public class Database {
         user2.setPwd("1111");
         user2.setName("유저1");
         user2.setRank("user");
-        user2.setTel("010-4688-8949");
+        user2.setTel("010-4638-2646");
         tb_user.add(user2);
         
         UserVO user3 = new UserVO();
@@ -51,7 +51,7 @@ public class Database {
         user3.setPwd("2222");
         user3.setName("유저2");
         user3.setRank("user");
-        user3.setTel("010-4688-8949");
+        user3.setTel("010-2765-2735");
         tb_user.add(user3);
         
         UserVO user4 = new UserVO();
@@ -59,8 +59,16 @@ public class Database {
         user4.setPwd("3333");
         user4.setName("유저3");
         user4.setRank("user");
-        user4.setTel("010-4688-8949");
+        user4.setTel("010-3258-5389");
         tb_user.add(user4);
+        
+        UserVO user5 = new UserVO();
+        user5.setId("dddd");
+        user5.setPwd("4444");
+        user5.setName("유저4");
+        user5.setRank("user");
+        user5.setTel("010-2595-8462");
+        tb_user.add(user5);
     }
    
     //대분류 정보
@@ -213,8 +221,8 @@ public ArrayList<ExamCategoryVO> tb_examcategory = new ArrayList<ExamCategoryVO>
     	examno.setTurn("2019년 정기 기사 2회");
     	examno.setTitle("정보처리기사");
     	examno.setWriteApply("2019-03-29~2019-04-04");
-    	examno.setWriteExam("2019-04-27");
-    	examno.setPassDate("2019-05-17");
+    	examno.setWriteExam("2019-05-29");
+    	examno.setPassDate("2019-06-17");
     	examno.setSkillApply("2019-05-20~2019-07-27");
     	examno.setSkillExam("2019-06-29~2019-07-12");
     	examno.setFinalPass("2019-08-16");
@@ -225,7 +233,7 @@ public ArrayList<ExamCategoryVO> tb_examcategory = new ArrayList<ExamCategoryVO>
     	examno.setCategoryNum("0101");
     	examno.setTurn("2019년 정기 기사 3회");
     	examno.setTitle("정보처리기사");
-    	examno.setWriteApply("2019-07-05~2019-07-11");
+    	examno.setWriteApply("2019-05-25~2019-06-11");
     	examno.setWriteExam("2019-08-04");
     	examno.setPassDate("2019-08-30");
     	examno.setSkillApply("2019-09-02~2019-09-05");
@@ -420,7 +428,7 @@ public ArrayList<ExamCategoryVO> tb_examcategory = new ArrayList<ExamCategoryVO>
     	examno.setCategoryNum("0303");
     	examno.setTurn("2019년 정기 기사 2회");
     	examno.setTitle("전기응용기술사");
-    	examno.setWriteApply("2019-07-19~2019-07-25");
+    	examno.setWriteApply("2019-05-29");
     	examno.setWriteExam("2019-08-10");
     	examno.setPassDate("2019-09-11");
     	examno.setSkillApply("2019-09-16~2019-09-19");
@@ -444,13 +452,43 @@ public ArrayList<ExamCategoryVO> tb_examcategory = new ArrayList<ExamCategoryVO>
     	ExamList.setApplyStatus("접수완료");
     	tb_applyStatusList.add(ExamList);
     	
+//    	ExamList = new ApplyStatusVO();
+//    	ExamList.setId("aaaa");
+//    	ExamList.setCategoryNum("0101");
+//    	ExamList.setApplierNum("13435746");
+//    	ExamList.setTurn("2019년 정기 기사 2회");
+//    	ExamList.setExamType("필기");
+//    	ExamList.setExamDate("2019-05-29");
+//    	ExamList.setApplyStatus("접수완료");
+//    	tb_applyStatusList.add(ExamList);
+    	
+    	ExamList = new ApplyStatusVO();
+    	ExamList.setId("aaaa");
+    	ExamList.setCategoryNum("0101");
+    	ExamList.setApplierNum("13435746");
+    	ExamList.setTurn("2019년 정기 기사 2회");
+    	ExamList.setExamType("실기");
+    	ExamList.setExamDate("2019-06-29~2019-07-12");
+    	ExamList.setApplyStatus("접수완료");
+    	tb_applyStatusList.add(ExamList);
+    	
     	ExamList = new ApplyStatusVO();
     	ExamList.setId("bbbb");
     	ExamList.setCategoryNum("0303");
     	ExamList.setApplierNum("17468567");
     	ExamList.setTurn("2019년 정기 기사 2회");
     	ExamList.setExamType("필기");
-    	ExamList.setExamDate("2019-04-27");
+    	ExamList.setExamDate("2019-08-10");
+    	ExamList.setApplyStatus("접수완료");
+    	tb_applyStatusList.add(ExamList);
+    	
+    	ExamList = new ApplyStatusVO();
+    	ExamList.setId("bbbb");
+    	ExamList.setCategoryNum("0303");
+    	ExamList.setApplierNum("16234944");
+    	ExamList.setTurn("2019년 정기 기사 2회");
+    	ExamList.setExamType("실기");
+    	ExamList.setExamDate("2019-11-02~2019-11-11");
     	ExamList.setApplyStatus("접수진행중(미결제)");
     	tb_applyStatusList.add(ExamList);
     	
@@ -464,81 +502,197 @@ public ArrayList<ExamCategoryVO> tb_examcategory = new ArrayList<ExamCategoryVO>
     	ExamList.setApplyStatus("접수완료");
     	tb_applyStatusList.add(ExamList);
     	
+    	ExamList = new ApplyStatusVO();
+    	ExamList.setId("cccc");
+    	ExamList.setCategoryNum("0103");
+    	ExamList.setApplierNum("25235533");
+    	ExamList.setTurn("2019년 정기 기능사 1회");
+    	ExamList.setExamType("실기");
+    	ExamList.setExamDate("2019-04-13~2019-04-22");
+    	ExamList.setApplyStatus("접수완료");
+    	tb_applyStatusList.add(ExamList);
+    	
+    	ExamList = new ApplyStatusVO();
+    	ExamList.setId("cccc");
+    	ExamList.setCategoryNum("0102");
+    	ExamList.setApplierNum("34563465");
+    	ExamList.setTurn("2019년 정기 기능사 2회");
+    	ExamList.setExamType("필기");
+    	ExamList.setExamDate("2019-05-05");
+    	ExamList.setApplyStatus("접수완료");
+    	tb_applyStatusList.add(ExamList);
+    	
+    	ExamList = new ApplyStatusVO();
+    	ExamList.setId("dddd");
+    	ExamList.setCategoryNum("0102");
+    	ExamList.setApplierNum("24536452");
+    	ExamList.setTurn("2019년 정기 기능사 1회");
+    	ExamList.setExamType("필기");
+    	ExamList.setExamDate("2019-01-27");
+    	ExamList.setApplyStatus("접수완료");
+    	tb_applyStatusList.add(ExamList);
+    	
+    	ExamList = new ApplyStatusVO();
+    	ExamList.setId("dddd");
+    	ExamList.setCategoryNum("0102");
+    	ExamList.setApplierNum("34563465");
+    	ExamList.setTurn("2019년 정기 기능사 1회");
+    	ExamList.setExamType("실기");
+    	ExamList.setExamDate("2019-04-13~2019-04-22");
+    	ExamList.setApplyStatus("접수완료");
+    	tb_applyStatusList.add(ExamList);
+    	
+    	ExamList = new ApplyStatusVO();
+    	ExamList.setId("dddd");
+    	ExamList.setCategoryNum("0101");
+    	ExamList.setApplierNum("35734522");
+    	ExamList.setTurn("2019년 정기 기사 2회");
+    	ExamList.setExamType("필기");
+    	ExamList.setExamDate("2019-04-27");
+    	ExamList.setApplyStatus("접수완료");
+    	tb_applyStatusList.add(ExamList);
+    	
+    	ExamList = new ApplyStatusVO();
+    	ExamList.setId("dddd");
+    	ExamList.setCategoryNum("0101");
+    	ExamList.setApplierNum("57836032");
+    	ExamList.setTurn("2019년 정기 기사 2회");
+    	ExamList.setExamType("실기");
+    	ExamList.setExamDate("2019-06-29~2019-07-12");
+    	ExamList.setApplyStatus("접수완료");
+    	tb_applyStatusList.add(ExamList);
+    	
     }
     	
     
     //응시자 정보 테이블
     public ArrayList<CandidateVO> tb_candidate = new ArrayList<CandidateVO>();
     {
-        CandidateVO candidate = new CandidateVO();
-        candidate.setCategoryNum("0103");
-        candidate.setTurn("2019년 정기 기능사 1회");
-        candidate.setId("cccc");
-		candidate.setPassStatus("합격");
-        candidate.setScore(82);
+    	CandidateVO candidate = new CandidateVO();
+        candidate.setCategoryNum("0101");
+        candidate.setTurn("2019년 정기 기사 1회");
+        candidate.setId("aaaa");
+        candidate.setApplierNum("12456734");
+		candidate.setPassStatus("");
+        candidate.setScore(67);
 		candidate.setExamType("필기");
-
         tb_candidate.add(candidate);
+        
+//        candidate = new CandidateVO();
+//        candidate.setCategoryNum("0101");
+//        candidate.setTurn("2019년 정기 기사 1회");
+//        candidate.setId("aaaa");
+//        candidate.setApplierNum("13435746");
+//		candidate.setPassStatus("");
+//        candidate.setScore(92);
+//		candidate.setExamType("필기");
+//        tb_candidate.add(candidate);
 
         candidate = new CandidateVO();
-        candidate.setCategoryNum("0201");
+        candidate.setCategoryNum("0101");
         candidate.setTurn("2019년 정기 기사 2회");
-        candidate.setId("bbbb");
-		candidate.setPassStatus("합격");
-        candidate.setScore(61);
-		candidate.setExamType("실기");
-
-        tb_candidate.add(candidate);
-
-        candidate = new CandidateVO();
-        candidate.setCategoryNum("0101");
-        candidate.setTurn("2019년 정기 기사 1회");
         candidate.setId("aaaa");
-		candidate.setPassStatus("합격");
-        candidate.setScore(92);
-		candidate.setExamType("필기");
-
-        tb_candidate.add(candidate);
-        
-        candidate = new CandidateVO();
-        candidate.setCategoryNum("0101");
-        candidate.setTurn("2019년 정기 기사 1회");
-        candidate.setId("bbbs");
-		candidate.setPassStatus("합격");
-        candidate.setScore(82);
-		candidate.setExamType("필기");
-
-        tb_candidate.add(candidate);
-        
-        candidate = new CandidateVO();
-        candidate.setCategoryNum("0101");
-        candidate.setTurn("2019년 정기 기사 1회");
-        candidate.setId("bbdbs");
-		candidate.setPassStatus("합격");
-        candidate.setScore(72);
+        candidate.setApplierNum("13435746");
+		candidate.setPassStatus("");
+        candidate.setScore(48);
 		candidate.setExamType("실기");
-
         tb_candidate.add(candidate);
         
-        candidate = new CandidateVO();
-        candidate.setCategoryNum("0301");
-        candidate.setTurn("2019년 정기 기사 1회");
-        candidate.setId("aaaa");
-		candidate.setPassStatus("불합격");
-        candidate.setScore(52);
-		candidate.setExamType("필기");
 
-        tb_candidate.add(candidate);
-        
         candidate = new CandidateVO();
         candidate.setCategoryNum("0303");
         candidate.setTurn("2019년 정기 기사 2회");
-        candidate.setId("bbb");
-        candidate.setPassStatus("합격");
-        candidate.setScore(89);
-		candidate.setExamType("실기");
-
+        candidate.setId("bbbb");
+        candidate.setApplierNum("17468567");
+		candidate.setPassStatus("");
+        candidate.setScore(61);
+		candidate.setExamType("필기");
         tb_candidate.add(candidate);
+        
+        //접수진행중
+//      candidate = new CandidateVO();
+//      candidate.setCategoryNum("0303");
+//      candidate.setTurn("2019년 정기 기사 2회");
+//      candidate.setId("bbbb");
+//      candidate.setApplierNum("16234944");
+//		candidate.setPassStatus("");
+//      candidate.setScore(67);
+//		candidate.setExamType("실기");
+//      tb_candidate.add(candidate);
+        
+        
+        candidate = new CandidateVO();
+        candidate.setCategoryNum("0103");
+        candidate.setTurn("2019년 정기 기능사 1회");
+        candidate.setId("cccc");
+        candidate.setApplierNum("47457934");
+        candidate.setPassStatus("");
+        candidate.setScore(82);
+        candidate.setExamType("필기");
+        tb_candidate.add(candidate);
+
+        candidate = new CandidateVO();
+        candidate.setCategoryNum("0103");
+        candidate.setTurn("2019년 정기 기능사 1회");
+        candidate.setId("cccc");
+        candidate.setApplierNum("25235533");
+        candidate.setPassStatus("");
+        candidate.setScore(85);
+        candidate.setExamType("실기");
+        tb_candidate.add(candidate);
+        
+        candidate = new CandidateVO();
+        candidate.setCategoryNum("0102");
+        candidate.setTurn("2019년 정기 기능사 1회");
+        candidate.setId("cccc");
+        candidate.setApplierNum("34563465");
+        candidate.setPassStatus("");
+        candidate.setScore(53);
+        candidate.setExamType("필기");
+        tb_candidate.add(candidate);
+        
+        
+        candidate = new CandidateVO();
+        candidate.setCategoryNum("0102");
+        candidate.setTurn("2019년 정기 기능사 1회");
+        candidate.setId("dddd");
+        candidate.setApplierNum("24536452");
+		candidate.setPassStatus("");
+        candidate.setScore(82);
+		candidate.setExamType("필기");
+        tb_candidate.add(candidate);
+        
+        candidate = new CandidateVO();
+        candidate.setCategoryNum("0102");
+        candidate.setTurn("2019년 정기 기능사 1회");
+        candidate.setId("dddd");
+        candidate.setApplierNum("34563465");
+		candidate.setPassStatus("");
+        candidate.setScore(68);
+		candidate.setExamType("실기");
+        tb_candidate.add(candidate);
+        
+        candidate = new CandidateVO();
+        candidate.setCategoryNum("0101");
+        candidate.setTurn("2019년 정기 기사 2회");
+        candidate.setId("dddd");
+        candidate.setApplierNum("35734522");
+		candidate.setPassStatus("");
+        candidate.setScore(68);
+		candidate.setExamType("필기");
+        tb_candidate.add(candidate);
+        
+        candidate = new CandidateVO();
+        candidate.setCategoryNum("0101");
+        candidate.setTurn("2019년 정기 기사 2회");
+        candidate.setId("dddd");
+        candidate.setApplierNum("57836032");
+		candidate.setPassStatus("");
+        candidate.setScore(73);
+		candidate.setExamType("실기");
+        tb_candidate.add(candidate);
+        
+
     }
     
     //자격증발급내역 테이블
@@ -547,17 +701,28 @@ public ArrayList<ExamCategoryVO> tb_examcategory = new ArrayList<ExamCategoryVO>
     {
     	MypageVO mypageVO = new MypageVO();
     	mypageVO.setId("aaaa");
+    	mypageVO.setApplierNum("13435746");
     	mypageVO.setTitle("정보처리기사");
+    	mypageVO.setIssueRequestDate("2019-10-25");
+    	mypageVO.setProgressStatus("발급중");
+    	tb_certificateIssueList.add(mypageVO);
+    	
+    	mypageVO = new MypageVO();
+    	mypageVO.setId("cccc");
+    	mypageVO.setApplierNum("25235533");
+    	mypageVO.setTitle("정보처리기능사");
     	mypageVO.setIssueRequestDate("2019-05-25");
     	mypageVO.setProgressStatus("발급완료");
     	tb_certificateIssueList.add(mypageVO);
     	
     	mypageVO = new MypageVO();
-    	mypageVO.setId("bbbb");
-    	mypageVO.setTitle("정보처리기사");
-    	mypageVO.setIssueRequestDate("2019-05-25");
-    	mypageVO.setProgressStatus("발급중");
+    	mypageVO.setId("dddd");
+    	mypageVO.setApplierNum("34563465");
+    	mypageVO.setTitle("정보관리기술사");
+    	mypageVO.setIssueRequestDate("2019-05-27");
+    	mypageVO.setProgressStatus("발급완료");
     	tb_certificateIssueList.add(mypageVO);
+    	
     }
     
     //합격율 정보 테이블
@@ -735,25 +900,25 @@ public ArrayList<ExamCategoryVO> tb_examcategory = new ArrayList<ExamCategoryVO>
     	AnswerSheetVO answerSheet = new AnswerSheetVO();
         answerSheet.setCategoryNum("0101");
         answerSheet.setTurn("2019년 정기 기사 1회");
-        answerSheet.setAnswer("답이다 이게********************1회차");
+        answerSheet.setAnswer("1 ④ 2 ① 3 ③ 4 ⑤ 5 ② 6 ④ 7 ⑤ 8 ③ 9 ④ 10 ④");
         answer.add(answerSheet);
         
         answerSheet = new AnswerSheetVO();
         answerSheet.setCategoryNum("0101");
         answerSheet.setTurn("2019년 정기 기사 2회");
-        answerSheet.setAnswer("답이다 이게********************2회차");
+        answerSheet.setAnswer("1 ③ 2 ⑤ 3 ④ 4 ④ 5 ① 6 ① 7 ③ 8 ③ 9 ② 10 ③");
         answer.add(answerSheet);
         
         answerSheet = new AnswerSheetVO();
         answerSheet.setCategoryNum("0101");
         answerSheet.setTurn("2019년 정기 기사 3회");
-        answerSheet.setAnswer("답이다 이게********************3회차");
+        answerSheet.setAnswer("1 ① 2 ① 3 ③ 4 ② 5 ③ 6 ① 7 ⑤ 8 ⑤ 9 ② 10 ②");
         answer.add(answerSheet);
         
         answerSheet = new AnswerSheetVO();
         answerSheet.setCategoryNum("0103");
         answerSheet.setTurn("2019년 정기 기능사 1회");
-        answerSheet.setAnswer("답이다 이게********************1+회차");
+        answerSheet.setAnswer("1 ③ 2 ⑤ 3 ④ 4 ④ 5 ① 6 ① 7 ③ 8 ③ 9 ② 10 ③");
         answer.add(answerSheet);
 
     }
@@ -764,16 +929,26 @@ public ArrayList<ExamCategoryVO> tb_examcategory = new ArrayList<ExamCategoryVO>
     {
     	BoardVO vo = new BoardVO();
     	vo.setBoardType("Notice");
-    	vo.setBoardContent("sdfsdfs");
-    	vo.setBoardTitle("제에에에에목");
-    	vo.setBoardWriter("글쓰으응으은이");
+    	vo.setBoardContent("우리 공단은 일체의 국가기술자격검정 부정행위에 대해 경찰에 수사를 의뢰하는 \n 등 강력하게 대응하고 있습니다.");
+    	vo.setBoardTitle("(수험자 필독) 국가기술자격검정 부정행위 관련 공지");
+    	vo.setBoardWriter("관리자");
+    	vo.setBoardDate("19.04.25 오후 15:25");
     	tb_noticeBoardDB.add(vo);
     	
     	vo = new BoardVO();
     	vo.setBoardType("Notice");
-    	vo.setBoardContent("sdfsdsddfs");
-    	vo.setBoardTitle("제sdf");
-    	vo.setBoardWriter("글asdg은이");
+    	vo.setBoardContent("개인PC를 사용한 CAD프로그램 활용 실기시험 응시와 관련, 공정한 국가기술 자격시험을\n 위하여 아래와 같이 사전안내를 드리오니 수험자께서는 양지하시어 협조하여 주기기 바랍니다.");
+    	vo.setBoardTitle("개인PC 지참 사용강화 조치 알림('19.4.29적용)");
+    	vo.setBoardWriter("관리자");
+    	vo.setBoardDate("19.05.15 오후 13:25");
+    	tb_noticeBoardDB.add(vo);
+    	
+    	vo = new BoardVO();
+    	vo.setBoardType("Notice");
+    	vo.setBoardContent("국가기술자격법 시행규칙 제12조의 규정에 따라 2018년 신설된 자격종목의 실기시험 \n수시검정 시행계획을 붙임과 같이 공고합니다.");
+    	vo.setBoardTitle("2018년 신설 자격종목 실기시험 수시검정 시행공고");
+    	vo.setBoardWriter("관리자");
+    	vo.setBoardDate("19.05.26 오전 10:25");
     	tb_noticeBoardDB.add(vo);
     	
     }
@@ -784,10 +959,27 @@ public ArrayList<ExamCategoryVO> tb_examcategory = new ArrayList<ExamCategoryVO>
     {   	
     	BoardVO vo = new BoardVO();
     	vo.setBoardType("FAQ");
-    	vo.setBoardContent("s1111dfs");
-    	vo.setBoardTitle("제s2242f");
-    	vo.setBoardWriter("글a145은123이");
-    	tb_FAQBoardDB.add(vo);  	
+    	vo.setBoardContent("화장실 이용 등의 사유로 부정행위가 이루어질 가능성이 높아 기본적으로 시험시간 중\n 화장실 이용은 제한하고 있으며, 시험시간 전 화장실을 이용할 수 있도록 수험자에게 사전에 안내드리고 있습니다.");
+    	vo.setBoardTitle("[기술자격] 시험중 화장실 이용은 가능한가요?");
+    	vo.setBoardWriter("관리자");
+    	vo.setBoardDate("18.11.11 오전 10:25");
+    	tb_FAQBoardDB.add(vo);  
+    	
+    	vo = new BoardVO();
+    	vo.setBoardType("FAQ");
+    	vo.setBoardContent("국가기술자격증의 유효기간은 따로 정해져 있지 않습니다. 본인이 자격증을 취득한 이후 \n행정처분으로 인해 자격취소가 되지 않는 이상 취득하신 자격사항은 계속 유효합니다.");
+    	vo.setBoardTitle("[자격취득] 국가기술자격증의 유효기간이 따로 있나요?");
+    	vo.setBoardWriter("관리자");
+    	vo.setBoardDate("19.01.11 오전 11:22");
+    	tb_FAQBoardDB.add(vo); 
+    	
+    	vo = new BoardVO();
+    	vo.setBoardType("FAQ");
+    	vo.setBoardContent("우리공단에서는 국가기술자격종목 및 신설종목에 대한 수험준비에 참고할 수 있도록\n 출제기준(Q-NET 자료실)을 공개하고 있으며, 시험문제출제 등 검정시행기관으로서 공정성 확보를 위해 특정 수험교재나, \n학원안내를 할 수 없음을 이해해 주시기 바랍니다.");
+    	vo.setBoardTitle("[기술자격]신설종목 안내");
+    	vo.setBoardWriter("관리자");
+    	vo.setBoardDate("19.04.16 오후 17:25");
+    	tb_FAQBoardDB.add(vo); 
     }
 
     //게시판 - 이의제기
@@ -797,16 +989,18 @@ public ArrayList<ExamCategoryVO> tb_examcategory = new ArrayList<ExamCategoryVO>
     	
     	BoardVO vo = new BoardVO();
     	vo.setBoardType("User");
-    	vo.setBoardContent("s1153");
-    	vo.setBoardTitle("제s1fwf");
-    	vo.setBoardWriter("글a1이");
+    	vo.setBoardContent("[1번문제] 정답에 이의를 제기합니다.");
+    	vo.setBoardTitle("2019년 정보처리기사 1회-필기");
+    	vo.setBoardWriter("aaaa");
+    	vo.setBoardDate("19.04.26 오전 11:25");
     	tb_userBoardDB.add(vo);
     	
     	vo = new BoardVO();
     	vo.setBoardType("User");
-    	vo.setBoardContent("sgggrg");
-    	vo.setBoardTitle("제f");
-    	vo.setBoardWriter("글이");
+    	vo.setBoardContent("[7번문제] 1번도 정답 아닌가요?");
+    	vo.setBoardTitle("2019년 정보처리기능사 1회-실기");
+    	vo.setBoardWriter("cccc");
+    	vo.setBoardDate("19.06.12 오후 17:55");
     	tb_userBoardDB.add(vo);
     	
     }

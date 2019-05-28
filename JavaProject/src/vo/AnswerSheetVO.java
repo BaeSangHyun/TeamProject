@@ -3,8 +3,8 @@ package vo;
 //답안지
 public class AnswerSheetVO {
 	private String categoryNum; //중분류 번호
-	private String turn;	//회차
-	private String answer;	//답
+	private String turn;		//회차
+	private String answer;		//답
 	
 	public String getCategoryNum() {
 		return categoryNum;

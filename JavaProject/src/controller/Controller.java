@@ -80,12 +80,18 @@ public class Controller {
                     	boardController.support();
                     	break;
                     case 6: //자격증 발급 및 확인
+                        userService.login();
+                        if(Session.loginUser == null){
+                            break;
+                        }
                     	certificateController.getCertificate();
                     	break;
                     case 0: //프로그램 종료
                         System.out.println("프로그램 종료");
                         System.exit(0); //프로그램 종료 메서드
                         break;
+                    default :
+                    	break;
                 }
            
 	        } else {
@@ -129,6 +135,8 @@ public class Controller {
 	                        System.out.println("프로그램 종료");
 	                        System.exit(0); //프로그램 종료 메서드
 	                        break;
+	                    default :
+	                    	break;
 	                }
                 } else if(Session.userRank.equals("admin")){
                     System.out.println("--------관리자 페이지 입니다----------");
@@ -146,7 +154,7 @@ public class Controller {
 
                     switch (menu){
                         case 1: //회원목록
-                        	new AdminController().getUserList();
+                        	userService.getUserList();
                             break;
                         case 2: //로그아웃
                         	Session.loginUser = null;
@@ -170,6 +178,8 @@ public class Controller {
                             System.out.println("프로그램 종료");
                             System.exit(0); //프로그램 종료 메서드
                             break;
+                        default :
+                        	break;
                     }
                 }
             }

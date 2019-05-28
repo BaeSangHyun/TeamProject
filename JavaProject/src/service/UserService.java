@@ -8,4 +8,6 @@ public interface UserService {
     void logout(); 	//로그아웃
 
     void userList();    //회원 전체 목록 출력
+    
+    public void getUserList();
 }

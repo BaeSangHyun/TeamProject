@@ -1,9 +1,9 @@
 package vo;
 
-//마이페이지 등록한 응시시험 목록
+//마이페이지 등록한 응시시험 목록 - 사용안함
 public class MyExamListVO {
-	private String id;	//아이디
-	private String turn;	//회차
+	private String id;			//아이디
+	private String turn;		//회차
 	private String categoryNum; //중분류 번호
 	
 	public String getId() {

@@ -1,17 +1,24 @@
 package vo;
 
 public class MypageVO {
-	private String id; //유저아이디
+	private String id; 					//유저아이디
+	private String applierNum;			//수험번호
 	//날짜 서식 : yyyy-MM-dd
-	private String title; //시험종목명
-	private String issueRequestDate; //신청일자
-	private String progressStatus; //발급진행상태
+	private String title; 				//시험종목명
+	private String issueRequestDate; 	//신청일자
+	private String progressStatus; 		//발급진행상태
 	
 	public String getId() {
 		return id;
 	}
 	public void setId(String id) {
 		this.id = id;
+	}
+	public String getApplierNum() {
+		return applierNum;
+	}
+	public void setApplierNum(String applierNum) {
+		this.applierNum = applierNum;
 	}
 	public String getTitle() {
 		return title;

@@ -2,7 +2,7 @@ package vo;
 
 //대분류
 public class MainCategoryVO {
-	private String mainNum;	//대분류 번호
+	private String mainNum;		//대분류 번호
 	private String mainName;	//이름
 	
 	public String getMainNum() {

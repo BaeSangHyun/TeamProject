@@ -1,6 +1,6 @@
 package vo;
 
-//의견제시
+//의견제시 - 사용안함
 public class AnswerOpinionVO {
 	private String categoryNum; //중분류 번호
 	private String turn;	//회차
@@ -8,6 +8,7 @@ public class AnswerOpinionVO {
 	private String content;	//내용
 	private String opinionWriter;	//작성자
 	private String opinionDate;	//작성날짜
+	
 	public String getCategoryNum() {
 		return categoryNum;
 	}

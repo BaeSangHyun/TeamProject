@@ -3,9 +3,9 @@ package vo;
 //합격자 통계
 public class PassPercentVO {
 	private String categoryNum;	//중분류 번호
-	private String turn;	//회차
+	private String turn;		//회차
 	private String applyerNum;	//응시자 수
-	private String passNum;	//합격자 수
+	private String passNum;		//합격자 수
 	private String passPercent;	//합격률
 	
 	public String getCategoryNum() {

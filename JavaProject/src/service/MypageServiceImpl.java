@@ -233,4 +233,24 @@ public class MypageServiceImpl implements MypageService {
     	
     	return passStatus;
 	}
+
+	public String getPassStatus(String id, String categoryNum, String turn){
+		String passStatus = null;
+
+		List<CandidateVO> candidateVOList = mypageDao.viewResult(id);
+		CandidateVO candidateVO = null;
+
+
+		for(int i=0; i<candidateVOList.size(); i++){
+			candidateVO = candidateVOList.get(i);
+
+			if(categoryNum.equals(candidateVO.getCategoryNum()) && turn.equals(candidateVO.getTurn()))
+			{
+				passStatus = candidateVO.getPassStatus();
+				break;
+			}
+		}
+
+		return passStatus;
+	}
 }
