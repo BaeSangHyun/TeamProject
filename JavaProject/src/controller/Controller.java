@@ -172,7 +172,7 @@ public class Controller {
                             boardController.support();
                             break;
                         case 6: //자격증 발급 및 확인
-                            certificateController.getCertificate();
+                            certificateController.CertificateManage();
                             break;
                         case 0: //프로그램 종료
                             System.out.println("프로그램 종료");

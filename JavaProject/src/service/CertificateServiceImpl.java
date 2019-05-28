@@ -83,7 +83,7 @@ public class CertificateServiceImpl implements CertificateService{
 		mypageVO.setId(Session.loginUser.getId());
 		mypageVO.setTitle(MypageServiceImpl.getInstance().getExamTitle(applyStatusVO.getCategoryNum()));
 		mypageVO.setIssueRequestDate(simpleDateFormat.format(date));
-		mypageVO.setProgressStatus("발급중");
+		mypageVO.setProgressStatus("발급신청완료");
 		database.tb_certificateIssueList.add(mypageVO);
 		System.out.println("--------------------------------------------------------");
 		System.out.println("발급신청이 완료되었습니다.");

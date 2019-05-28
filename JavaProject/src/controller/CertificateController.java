@@ -60,6 +60,25 @@ public class CertificateController {
 	private void applyCertificate(int m){
 		certificateService.issue(m);
 	}
+
+	void CertificateManage(){
+		int menu;
+		do {
+			System.out.println();
+			System.out.println("1.자격증 발급내역");
+			System.out.println("0.뒤로가기");
+			System.out.print("메뉴에 해당하는 번호 입력 >");
+			menu = Integer.parseInt(s.nextLine());
+
+			switch (menu) {
+				case 1: //발급내역
+					certificateService.getCertificateList();
+					break;
+				case 0: //뒤로가기
+					break;
+			}
+		}while(menu != 0);
+	}
 }
 	
 	
